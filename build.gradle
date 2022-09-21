@@ -1,5 +1,13 @@
 plugins {
     id 'java'
+    //ADDED THE PLUGIN HERE
+    id 'com.github.johnrengelman.shadow' version '2.0.2'
+}
+
+// Shadow task depends on Jar task, so these configs are reflected for Shadow as well
+tasks.jar {
+    manifest.attributes["Main-Class"] = "ProjectPlutonium-Backend"
+
 }
 
 group 'org.example'
@@ -16,4 +24,22 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+//ADDED PLUGIN AND MANIFEST TO BUILD SHADOW JAR
+
+apply plugin: 'java'
+
+jar {
+    manifest {
+        attributes "Main-Class": "ProjectPlutonium-Backend"
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+
+
+    }
+    duplicatesStrategy = 'include'
+
 }
