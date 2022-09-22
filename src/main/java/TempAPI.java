@@ -1,6 +1,3 @@
-package API;
-
-
 import Models.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.javalin.Javalin;
