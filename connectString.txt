@@ -1,4 +1,4 @@
-jdbc:sqlserver://projecttwoserver.database.windows.net:1433;database=p2db;user=jacob367@projecttwoserver;password=plut0nium;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+jdbc:sqlserver://projecttwoserver.database.windows.net:1433;database=p2db;user=jacob367@projecttwoserver;password=Plut0nium;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 
 
 
