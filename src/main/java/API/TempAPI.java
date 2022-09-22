@@ -18,6 +18,8 @@ public class TempAPI {
         }).start(7070);
 
 
+        app.get("/", ctx -> ctx.result("Hello World!"));
+
         app.before(ctx -> {
             ctx.header("Access-Control-Allow-Credentials", "true");
             //ctx.header("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
