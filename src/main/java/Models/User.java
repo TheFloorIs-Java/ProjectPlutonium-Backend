@@ -8,6 +8,13 @@ public class User {
     String salt;
 
     public User() {
+        this.id = -1;
+        this.username = "missing";
+        this.password = "*****";
+        this.permissionLevel = "user";
+        this.salt = "*****";
+        this.sessionId = "missing";
+        this.sessionExpiration = "1/1/1970";
     }
 
     public User(int id, String username, String password, String permissionLevel, String salt, String sessionId, String sessionExpiration) {
