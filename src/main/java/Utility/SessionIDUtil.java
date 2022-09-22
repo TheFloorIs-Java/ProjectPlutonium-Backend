@@ -2,7 +2,7 @@ package Utility;
 
 import java.util.UUID;
 
-public class SessionIDUtility {
+public class SessionIDUtil {
 
     //Generates a random UUID.
     public static UUID getSessionID(){
