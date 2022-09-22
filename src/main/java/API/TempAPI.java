@@ -11,6 +11,8 @@ public class TempAPI {
 
     public static void main(String[] args) {
 
+        System.out.println("Hello World!");
+
         Javalin app = Javalin.create(config -> {
             config.enableCorsForAllOrigins();
         }).start(7070);

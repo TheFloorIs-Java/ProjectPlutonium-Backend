@@ -6,7 +6,8 @@ plugins {
 
 // Shadow task depends on Jar task, so these configs are reflected for Shadow as well
 tasks.jar {
-    manifest.attributes["Main-Class"] = "ProjectPlutonium-Backend"
+    manifest.attributes["Main-Class"] = "API/TempAPI"
+    //manifest.attributes["Main-Class"] = "ProjectPlutonium-Backend"
 
 }
 
