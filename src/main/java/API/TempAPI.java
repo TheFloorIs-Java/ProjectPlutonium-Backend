@@ -15,7 +15,7 @@ public class TempAPI {
 
         Javalin app = Javalin.create(config -> {
             config.enableCorsForAllOrigins();
-        }).start(7070);
+        }).start(80);
 
 
 
