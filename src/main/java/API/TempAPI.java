@@ -18,13 +18,15 @@ public class TempAPI {
         }).start(7070);
 
 
-        app.get("/", ctx -> ctx.result("Hello World!"));
+
 
         app.before(ctx -> {
             ctx.header("Access-Control-Allow-Credentials", "true");
             //ctx.header("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
         });
 
+
+        app.get("/", ctx -> ctx.result("Hello World!"));
 
         //post login/ ( supply username and password and receive User object )
         app.post("/login", ctx -> {
@@ -34,10 +36,12 @@ public class TempAPI {
         });
 
         //get user/id
-        app.get("/user/id/{id}", ctx -> ctx.json(new User()));
+        app.get("/users/id/{id}", ctx -> ctx.json(new User()));
+
+        app.get("/users/all", ctx -> ctx.json(new User[]{new User(), new User(), new User()}));
 
         //get user/username
-        app.get("/user/username/{name}", ctx -> ctx.json(new User()));
+        app.get("/users/username/{name}", ctx -> ctx.json(new User()));
 
         //post register/ ( supply User object and Service will add it to database )
         app.post("/register", ctx -> {
