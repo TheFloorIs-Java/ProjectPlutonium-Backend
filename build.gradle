@@ -20,6 +20,18 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+    //Temporary until we start Spring
+    // https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc
+    implementation group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '11.2.1.jre17'
+
+    //Temporary until we start Spring
+    // https://mvnrepository.com/artifact/io.javalin/javalin
+    implementation group: 'io.javalin', name: 'javalin', version: '4.6.4'
+    implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.8.0-beta4'
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.4'
 }
 
 test {
