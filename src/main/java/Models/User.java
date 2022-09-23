@@ -1,23 +1,24 @@
 package Models;
 
+import java.util.Date;
+
 public class User {
-    int id;
-    String username;
-    String password;
-    String permissionLevel;
-    String salt;
+    private int id, permissionLevel;
+    private String username, password, sessionId, salt;
+
+    private Date sessionExpiration;
 
     public User() {
         this.id = -1;
         this.username = "missing";
         this.password = "*****";
-        this.permissionLevel = "user";
+        this.permissionLevel = 0;
         this.salt = "*****";
         this.sessionId = "missing";
-        this.sessionExpiration = "1/1/1970";
+        this.sessionExpiration = null;
     }
-
-    public User(int id, String username, String password, String permissionLevel, String salt, String sessionId, String sessionExpiration) {
+    
+    public User(int id, String username, String password, int permissionLevel, String salt, String sessionId, Date sessionExpiration) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -26,6 +27,37 @@ public class User {
         this.sessionId = sessionId;
         this.sessionExpiration = sessionExpiration;
     }
+
+    public User(int id, String username, int permissionLevel, String sessionId, Date sessionExpiration) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.permissionLevel = permissionLevel;
+        this.salt = salt;
+        this.sessionId = sessionId;
+        this.sessionExpiration = sessionExpiration;
+    }
+
+    public User(int id, String username, int permissionLevel) {
+        this.id = id;
+        this.username = username;
+        this.password = "*****";
+        this.permissionLevel = permissionLevel;
+        this.salt = "*****";
+        this.sessionId = "missing";
+        this.sessionExpiration = null;
+    }
+
+    public User(int id, String sessionId, Date sessionExpiration) {
+        this.id = id;
+        this.username = "";
+        this.password = "*****";
+        this.permissionLevel = 0;
+        this.salt = "*****";
+        this.sessionId = sessionId;
+        this.sessionExpiration = sessionExpiration;
+    }
+
 
     public int getId() {
         return id;
@@ -51,11 +83,11 @@ public class User {
         this.password = password;
     }
 
-    public String getPermissionLevel() {
+    public int getPermissionLevel() {
         return permissionLevel;
     }
 
-    public void setPermissionLevel(String permissionLevel) {
+    public void setPermissionLevel(int permissionLevel) {
         this.permissionLevel = permissionLevel;
     }
 
@@ -75,14 +107,13 @@ public class User {
         this.sessionId = sessionId;
     }
 
-    public String getSessionExpiration() {
+    public Date getSessionExpiration() {
         return sessionExpiration;
     }
 
-    public void setSessionExpiration(String sessionExpiration) {
+    public void setSessionExpiration(Date sessionExpiration) {
         this.sessionExpiration = sessionExpiration;
     }
 
-    String sessionId;
-    String sessionExpiration;
+
 }

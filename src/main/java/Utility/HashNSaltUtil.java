@@ -3,7 +3,6 @@ package Utility;
 import org.mindrot.jbcrypt.BCrypt;
 
 public final class HashNSaltUtil {
-    //This needs to be filled in:
 
     private HashNSaltUtil(){
         throw new IllegalStateException("cannot be instantiated");
