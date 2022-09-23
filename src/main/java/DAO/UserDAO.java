@@ -67,7 +67,11 @@ public class UserDAO {
         return null;
     }
 
-    //Get the userinfo with the session id
+    /*
+        Get a user's information from the user_info table
+        Parameter: User_ID
+        Returns: User object with the username, userID, and permissionLevel properties filled out.
+    */
     public User getUserDetailed(String username){
         String query =  "SELECT user_info.user_id, username, permission_level, session_id, session_expiry " +
                         "FROM user_info JOIN sessions " +
@@ -99,7 +103,7 @@ public class UserDAO {
             preparedStatement.setString(1, sessionID);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()){
-                return new User(resultSet.getInt(1), resultSet.getString(2), resultSet.getDate(3));
+                return new User(resultSet.getInt(1), resultSet.getString(2), resultSet.getTime(3));
             }
         } catch (SQLException e) {
             System.out.println("Something went wrong while getting session information for session_id: "+sessionID);

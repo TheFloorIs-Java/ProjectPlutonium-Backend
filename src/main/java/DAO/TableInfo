@@ -1,0 +1,13 @@
+TABLE#1 : user_info
+    Columns:
+        user_id           | int     | primary key ---> increments automatically
+        username          | varchar | not null
+        password          | varchar | not null
+        sale              | varchar | not null
+        permission_level  | int     | not null ---> 0 for user & 1 for admin
+
+TABLE#2 : sessions
+    Columns:
+        user_id           | int      | foreign key ---> user_info.user_id
+        session_id        | varchar  | not null unique
+        session_expiry    | datetime | not null
