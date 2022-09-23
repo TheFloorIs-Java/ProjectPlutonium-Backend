@@ -47,5 +47,7 @@ public class TempAPI {
             ctx.result("Test");
         });
 
+        app.get("/hangman/date/{date}", ctx -> ctx.result("this is the test game. try your best!"));
+
     }
 }
