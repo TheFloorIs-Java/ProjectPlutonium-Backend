@@ -34,6 +34,9 @@ dependencies {
 
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.4'
+
+    // Bcrypt for Password Hashing and Salting
+    implementation "org.mindrot:jbcrypt:0.4"
 }
 
 test {
