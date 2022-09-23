@@ -4,9 +4,8 @@ import java.util.Date;
 
 public class User {
     private int id, permissionLevel;
-    private String username, password, sessionId, salt;
+    private String username, password, sessionId, salt, sessionExpiration;
 
-    private Date sessionExpiration;
 
     public User() {
         this.id = -1;
@@ -18,7 +17,7 @@ public class User {
         this.sessionExpiration = null;
     }
     
-    public User(int id, String username, String password, int permissionLevel, String salt, String sessionId, Date sessionExpiration) {
+    public User(int id, String username, String password, int permissionLevel, String salt, String sessionId, String sessionExpiration) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -28,7 +27,7 @@ public class User {
         this.sessionExpiration = sessionExpiration;
     }
 
-    public User(int id, String username, int permissionLevel, String sessionId, Date sessionExpiration) {
+    public User(int id, String username, int permissionLevel, String sessionId, String sessionExpiration) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -48,7 +47,7 @@ public class User {
         this.sessionExpiration = null;
     }
 
-    public User(int id, String sessionId, Date sessionExpiration) {
+    public User(int id, String sessionId, String sessionExpiration) {
         this.id = id;
         this.username = "";
         this.password = "*****";
@@ -107,11 +106,11 @@ public class User {
         this.sessionId = sessionId;
     }
 
-    public Date getSessionExpiration() {
+    public String getSessionExpiration() {
         return sessionExpiration;
     }
 
-    public void setSessionExpiration(Date sessionExpiration) {
+    public void setSessionExpiration(String sessionExpiration) {
         this.sessionExpiration = sessionExpiration;
     }
 
