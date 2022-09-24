@@ -1,8 +1,6 @@
 
 G
 src/main/java/Main.java,e\4\e44a8606ce010ad9b89aafdfcee2ab49afbf6d10
-N
-src/main/java/Models/User.java,d\0\d0cd9764143c90e2b3a8fa31f63a774496de9c6f
 7
 gradlew,5\b\5bbfa66edb4db3c7c33c5181f43510990d3307f9
 A
