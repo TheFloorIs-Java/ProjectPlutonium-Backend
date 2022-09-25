@@ -38,8 +38,11 @@ public class UserDAO {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, user.getUsername());
+            System.out.println(user.getUsername());
             preparedStatement.setString(2, user.getPassword());
+            System.out.println(user.getPassword());
             preparedStatement.setString(3, user.getSalt());
+            System.out.println(user.getSalt());
             return preparedStatement.execute();
         } catch (SQLException e) {
             System.out.println("Something went wrong while authenticating the user credentials: "+user.getUsername());
@@ -96,9 +99,9 @@ public class UserDAO {
     */
     public User getUserDetailed(String username) {
         String query = "SELECT user_info.user_id, username, permission_level, session_id, session_expiry " +
-                       "FROM user_info JOIN sessions " +
-                       "ON user_info.user_id = sessions.user_id" +
-                       "WHERE user_info.username = ?";
+                            "FROM user_info JOIN sessions " +
+                            "ON user_info.user_id = sessions.user_id " +
+                            "WHERE user_info.username = ? ";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, username);
@@ -110,6 +113,32 @@ public class UserDAO {
             }
         } catch (SQLException e) {
             System.out.println("Something went wrong while getting active user info for username: " + username);
+        }
+        return null;
+    }
+
+    /*
+       Get a user's information from the user_info table and sessions table
+       Parameter: User ID
+       Returns: User object with the username, userID, permissionLevel properties, session ID, and session expiry
+                properties set.
+   */
+    public User getUserDetailed(int userID) {
+        String query = "SELECT user_info.user_id, username, permission_level, session_id, session_expiry " +
+                "FROM user_info JOIN sessions " +
+                "ON user_info.user_id = sessions.user_id " +
+                "WHERE user_info.user_id = ? ";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, userID);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return new User(resultSet.getInt(1), resultSet.getString(2),
+                        resultSet.getInt(3), resultSet.getString(4),
+                        resultSet.getString(5));
+            }
+        } catch (SQLException e) {
+            System.out.println("Something went wrong while getting active user info for userID: " + userID);
         }
         return null;
     }
@@ -217,11 +246,6 @@ public class UserDAO {
             System.out.println("Something went wrong while updating the Session Info for user ID: " + user.getId());
         }
         return false;
-    }
-
-    //Update Session Info
-    public User updateSessionInfo() {
-        return null;
     }
 
     /*
