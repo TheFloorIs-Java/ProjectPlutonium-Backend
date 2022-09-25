@@ -49,5 +49,7 @@ public class TempAPI {
 
         app.get("/hangman/date/{date}", ctx -> ctx.result("this is the test game. try your best!"));
 
+        app.get("/echo", ctx -> ctx.result(ctx.body()));
+        app.post("/echo", ctx -> ctx.result(ctx.body()));
     }
 }
