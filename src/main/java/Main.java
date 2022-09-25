@@ -19,8 +19,8 @@ public class Main {
         //========================================= END POINTS START =========================================
 
 
-        //Login Endpoint --> /projectplutonium/login
-        app.post("/projectplutonium/login", ctx ->{
+        //Login Endpoint --> /login
+        app.post("/login", ctx ->{
             User user = mapper.readValue(ctx.body(), User.class);
             if (userService.authenticateUser(user)){
                 userService.setSessionID(user);
@@ -29,8 +29,8 @@ public class Main {
             }
         } );
 
-        //Create User Endpoint --> /projectplutonium/createaccount
-        app.post("/projectplutonium/createaccount", ctx ->{
+        //Create User Endpoint --> /createaccount
+        app.post("/createaccount", ctx ->{
             User user = mapper.readValue(ctx.body(), User.class);
             if (userService.createUser(user)){
                 userService.setSessionID(user);
@@ -39,10 +39,10 @@ public class Main {
             }
         } );
 
-        //Get User Info --> /projectplutonium/userinfo
-        app.get("/projectplutonium/userinfo", ctx -> {
+        //Get User Info --> /userinfo
+        app.get("/userinfo", ctx -> {
             //Get the session id
-            User user = userService.getSessionInfo(ctx.cookie("sessionID"));
+            User user = userService.getSessionInfo(ctx.header("session"));
             //Check if the session has expired or not.
             if (user != null){ //remove this condition
                 //Get the user id associated with the sessionID
