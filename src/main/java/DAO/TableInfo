@@ -12,7 +12,7 @@ TABLE#2 : sessions
         session_id        | varchar  | not null unique
         session_expiry    | varchar  | not null
 
-TABLE#4 : published_games
+TABLE#3 : published_games
     Columns:
         game_id           | int      | primary key identity(1,1)
         game_title        | varchar  | not null
@@ -20,12 +20,12 @@ TABLE#4 : published_games
         user_id           | int      | foreign key ---> user_info.user_id not null
         number_of_plays   | int      | default 0
 
-TABLE#5 : daily_challenge
+TABLE#4 : daily_challenge
     Columns:
        challenge_date     | date     | not null unique
        published_game_id  | int      | foreign key ---> published_games.game_id not null
 
-TABLE#6 : user_scores
+TABLE#5 : user_scores
     Columns:
         user_id           | int      | foreign key ---> user_info.user_id not null
         published_game_id | int      | foreign key ---> published_games.game_id not null
