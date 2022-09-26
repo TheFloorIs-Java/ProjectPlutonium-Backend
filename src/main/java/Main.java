@@ -1,12 +1,10 @@
-package API;
-
 import Models.User;
 import Service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.javalin.Javalin;
 import io.javalin.core.JavalinConfig;
 
-public class NewAPI {
+public class Main {
     public static void main(String[] args) {
         //Initializing the user service class object once because the service object is independent
         // of the user accessing the object. The user service will take the user (model) object

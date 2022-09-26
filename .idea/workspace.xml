@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2e5d2782-8499-4f88-a55c-c07c8189e6ff" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NewAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TempAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TempAPI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +55,7 @@
 }</component>
   <component name="RunManager" selected="Application.TempAPI">
     <configuration name="NewAPI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="NewAPI" />
+      <option name="MAIN_CLASS_NAME" value="API.NewAPI" />
       <module name="ProjectPlutonium.main" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -111,7 +109,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/NewAPI.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/API/NewAPI.java</url>
           <line>43</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
