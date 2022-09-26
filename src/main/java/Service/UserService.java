@@ -17,6 +17,23 @@ public class UserService {
         userDAO = new UserDAO();
     }
 
+    /*
+        Method to get user data includes the session id
+        Parameter: Username
+        Returns: User object which will be converted into json during response
+    */
+    public User getUserInfo(String username){
+        return userDAO.getUserDetailed(username);
+    }
+
+    /*
+        Method to get user data includes the session id
+        Parameter: User ID
+        Returns: User object which will be converted into json during response
+    */
+    public User getUserInfo(int userID){
+        return userDAO.getUserDetailed(userID);
+    }
 
 
     /*
@@ -29,10 +46,10 @@ public class UserService {
     public boolean authenticateUser(User user){
         //setting the salt in the user object.
         user.setSalt(userDAO.getSalt(user));
-
+        System.out.println(user.getSalt());
         // replacing the user's password with the hashed version
         user.setPassword(HashNSaltUtil.saltAndHash(user.getPassword(), user.getSalt()));
-
+        System.out.println(user.getPassword());
         return userDAO.authenticateUser(user);
     }
 
@@ -85,7 +102,7 @@ public class UserService {
             1. username
         Returns: boolean true if the password is set and false if something goes wrong
     */
-    public boolean updateAPassword(User user, String newPassword){
+    public boolean updateAPassword(User user, String newPassword){    //Update the all the user info
         //getting a new salt and hashing the new password
         user.setSalt(HashNSaltUtil.generateSalt());
         user.setPassword(HashNSaltUtil.saltAndHash(newPassword, user.getSalt()));
@@ -140,18 +157,18 @@ public class UserService {
             1. username
         Returns: boolean true if a session id is set otherwise it will return false
      */
-    public boolean setSessionID(User user){
+    public String setSessionID(User user){
         String sessionID = SessionIDUtil.getSessionID().toString();
         Date date = new Date();
         String expiry = String.valueOf((date.getTime()+3600000));
-        return userDAO.setSessionInfo(user, sessionID, expiry);
+        if(userDAO.setSessionInfo(user, sessionID, expiry)){
+            return sessionID;
+        }
+        return null;
     }
 
-    //Update the Session ID after expiry or a password change
-
-
     /*
-       Method to Delete a session
+       Method to Delete a session when the user logs out
        Parameter: User obj
        the user object should have at least the following properties
            1. username
