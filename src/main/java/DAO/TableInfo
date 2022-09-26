@@ -12,26 +12,10 @@ TABLE#2 : sessions
         session_id        | varchar  | not null unique
         session_expiry    | varchar  | not null
 
-TABLE#3 : game_type
-    Columns:
-        game_id           | int      | primary key ---> increments automatically
-        game_name         | varchar  | not null unique ----> 255 character
-
-TABLE#4 : game_daily_chall
-    Columns:
-        game_date         | date     | not null
-        game_id           | int      | foreign key ---> game_type.game_id
-        game_name         | varchar  | not null ----> 1000 character
-
-
-
-Alter Needed
-============================================================================
 TABLE#4 : published_games
     Columns:
         game_id           | int      | primary key identity(1,1)
         game_title        | varchar  | not null
-        game_type_id      | int      | foreign key ---> game_type.game_id not null
         game_data         | varchar  | not null ----> 8000 character
         user_id           | int      | foreign key ---> user_info.user_id not null
         number_of_plays   | int      | default 0
@@ -47,4 +31,3 @@ TABLE#6 : user_scores
         published_game_id | int      | foreign key ---> published_games.game_id not null
         date_submitted    | date     | default (current date)
         score             | int      | default 0
-
