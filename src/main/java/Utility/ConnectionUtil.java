@@ -10,8 +10,8 @@ public class ConnectionUtil {
         if (conn == null)
             try{
                 String url = "jdbc:sqlserver://projecttwoserver.database.windows.net:1433;database=p2db;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
-                String username = System.getenv("jacob367@projecttwoserver");
-                String password = System.getenv("plut0nium");
+                String username = "jacob367";
+                String password = "Plut0nium";
 
                 conn = DriverManager.getConnection(url,username,password);
             }catch(SQLException e){

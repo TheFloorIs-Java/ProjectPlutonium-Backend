@@ -1,12 +1,23 @@
 package Utility;
 
-public class HashNSaltUtil {
-    //This needs to be filled in:
+import org.mindrot.jbcrypt.BCrypt;
 
+public final class HashNSaltUtil {
 
-    //Generate a salt
+    private HashNSaltUtil(){
+        throw new IllegalStateException("cannot be instantiated");
+    }
 
-    //Salt and Hash a Password
+    public static String saltAndHash(String password, String salt){
+        return hash(password, salt);
+    }
 
+    private static String hash(String password, String salt){
+        return BCrypt.hashpw(password, salt);
+    }
+
+    public static String generateSalt(){
+        return BCrypt.gensalt();
+    }
 
 }

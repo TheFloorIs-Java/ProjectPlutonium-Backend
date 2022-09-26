@@ -1,0 +1,33 @@
+TABLE#1 : user_info
+    Columns:
+        user_id           | int     | primary key ---> increments automatically
+        username          | varchar | not null
+        password          | varchar | not null
+        salt              | varchar | not null
+        permission_level  | int     | not null ---> 0 for user & 1 for admin
+
+TABLE#2 : sessions
+    Columns:
+        user_id           | int      | foreign key ---> user_info.user_id
+        session_id        | varchar  | not null unique
+        session_expiry    | varchar  | not null
+
+TABLE#3 : published_games
+    Columns:
+        game_id           | int      | primary key identity(1,1)
+        game_title        | varchar  | not null
+        game_data         | varchar  | not null ----> 8000 character
+        user_id           | int      | foreign key ---> user_info.user_id not null
+        number_of_plays   | int      | default 0
+
+TABLE#4 : daily_challenge
+    Columns:
+       challenge_date     | date     | not null unique
+       published_game_id  | int      | foreign key ---> published_games.game_id not null
+
+TABLE#5 : user_scores
+    Columns:
+        user_id           | int      | foreign key ---> user_info.user_id not null
+        published_game_id | int      | foreign key ---> published_games.game_id not null
+        date_submitted    | date     | default (current date)
+        score             | int      | default 0

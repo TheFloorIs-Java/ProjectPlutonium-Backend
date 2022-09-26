@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e5d2782-8499-4f88-a55c-c07c8189e6ff" name="Changes" comment="">
 <<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
+    <list default="true" id="e0ccd622-a721-46a4-82b5-c11920ffc6a9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
->>>>>>> 13ddaf0d25ede95746384760279322582e62fcc3
->>>>>>> 1fc8dcac1fbd7683832adbc57d3c1f0a6d69966b
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/SessionIDUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utility/SessionIDUtil.java" afterDir="false" />
+=======
+    <list default="true" id="2e5d2782-8499-4f88-a55c-c07c8189e6ff" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> 379582058e6cf4d44afa55226c4027f75210583d
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,13 +48,53 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Users/User/IdeaProjects/Project-2/ProjectPlutonium-Backend&quot;
+
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Users/User/IdeaProjects/Project-2/ProjectPlutonium-Backend&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
+
+    &quot;last_opened_file_path&quot;: &quot;E:/Users/User/IdeaProjects/Project-2/ProjectPlutonium-Backend&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Java&quot;
+
   }
 }</component>
+  <component name="RunManager" selected="Application.TempAPI">
+    <configuration name="NewAPI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="API.NewAPI" />
+      <module name="ProjectPlutonium.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TempAPI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TempAPI" />
+      <module name="ProjectPlutonium.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scratch" type="Java Scratch" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Scratch" />
+      <option name="SCRATCH_FILE_URL" value="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TempAPI" />
+        <item itemvalue="Application.NewAPI" />
+        <item itemvalue="Java Scratch.Scratch" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="2e5d2782-8499-4f88-a55c-c07c8189e6ff" name="Changes" comment="" />
+      <changelist id="e0ccd622-a721-46a4-82b5-c11920ffc6a9" name="Changes" comment="" />
       <created>1663787634143</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -71,5 +112,30 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+<<<<<<< HEAD
+          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
+          <line>44</line>
+=======
+          <url>file://$PROJECT_DIR$/src/main/java/API/NewAPI.java</url>
+          <line>43</line>
+>>>>>>> 379582058e6cf4d44afa55226c4027f75210583d
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/DAO/UserDAO.java</url>
+          <line>100</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
