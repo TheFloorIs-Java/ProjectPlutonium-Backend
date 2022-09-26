@@ -50,6 +50,7 @@ public class Main {
                 ctx.json(userService.getUserInfo(user.getId()));
             }
             else{
+                userService.deleteSession(user.getSessionId());
                 ctx.status(401);
             }
         });
@@ -71,9 +72,31 @@ public class Main {
                 }
             }
             else {
+                userService.deleteSession(user.getSessionId());
                 ctx.status(401);
             }
         });
+
+        //Change user's permission level --> /changepermissionlevel
+        app.put("/changepermissionlevel", ctx -> {
+            User user = userService.getSessionInfo(ctx.header("session"));
+
+            if (SessionIDUtil.checkSession(user)){
+                if (userService.changePermissionLevel(user, ctx.header("username"), Integer.parseInt(ctx.header("permissionLevel")))){
+                    ctx.status(200);
+                }
+                else {
+                    ctx.status(401);
+                }
+            }
+            else {
+                ctx.status(401);
+            }
+        });
+
+
+
+
 
 
     }
