@@ -74,14 +74,16 @@ public class TempAPI {
             requestUser.setSessionId("ThisWouldBeASessionID");
             ctx.json(requestUser);
         });
+        app.put("/users/id/{id}", ctx -> ctx.status(200));
 
-
-        app.get("/publishedGame/id/{id}", ctx -> ctx.json(publishedGame));
-        app.get("/publishedGame/userId/{id}", ctx -> ctx.json(new PublishedGame[] {publishedGame, publishedGame}));
-        app.get("/publishedGame/date/{date}", ctx -> ctx.json(publishedGame));
+        app.get("/publishedGames/id/{id}", ctx -> ctx.json(publishedGame));
+        app.get("/publishedGames/userId/{id}", ctx -> ctx.json(new PublishedGame[] {publishedGame, publishedGame}));
+        app.get("/publishedGames/date/{date}", ctx -> ctx.json(publishedGame));
 
 
         app.get("/scoreCards/userId/{id}", ctx -> ctx.json(new ScoreCard[] {scoreCards[Integer.parseInt(ctx.pathParam("id"))], scoreCards[Integer.parseInt(ctx.pathParam("id"))], scoreCards[Integer.parseInt(ctx.pathParam("id"))]}));
+        app.post("/scoreCards", ctx -> ctx.status(200));
+
         app.get("/highScoreCards/all", ctx -> ctx.json(highScoreCards));
 
 

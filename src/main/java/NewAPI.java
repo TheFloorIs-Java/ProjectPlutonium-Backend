@@ -1,11 +1,10 @@
 import Models.User;
 import Service.UserService;
-import Utility.HashNSaltUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.javalin.Javalin;
 import io.javalin.core.JavalinConfig;
 
-public class Main {
+public class NewAPI {
     public static void main(String[] args) {
         //Initializing the user service class object once because the service object is independent
         // of the user accessing the object. The user service will take the user (model) object
