@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e5d2782-8499-4f88-a55c-c07c8189e6ff" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Models/HighScoreCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Models/PublishedGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Models/ScoreCard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TempAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TempAPI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,9 +54,16 @@
 
   }
 }</component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.TempAPI">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="ProjectPlutonium.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TempAPI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TempAPI" />
       <module name="ProjectPlutonium.main" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -73,6 +78,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TempAPI" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Java Scratch.Scratch" />
       </list>
