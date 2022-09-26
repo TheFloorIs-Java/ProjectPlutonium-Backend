@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e5d2782-8499-4f88-a55c-c07c8189e6ff" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NewAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TempAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TempAPI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,8 +56,8 @@
   }
 }</component>
   <component name="RunManager" selected="Application.TempAPI">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+    <configuration name="NewAPI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="NewAPI" />
       <module name="ProjectPlutonium.main" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -78,7 +80,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.TempAPI" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.NewAPI" />
         <item itemvalue="Java Scratch.Scratch" />
       </list>
     </recent_temporary>
@@ -109,7 +111,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/NewAPI.java</url>
           <line>43</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
