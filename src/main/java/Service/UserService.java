@@ -80,6 +80,7 @@ public class UserService {
        Returns: boolean true if the password updated or false if something goes wrong
     */
     public boolean updatePassword(User user , String newPassword){
+        user = getUserInfo(user.getId());
         user.setSalt(userDAO.getSalt(user));
         user.setPassword(HashNSaltUtil.saltAndHash(user.getPassword(), user.getSalt()));
 

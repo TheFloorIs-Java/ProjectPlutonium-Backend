@@ -1,6 +1,7 @@
 import Models.User;
 import Service.UserService;
 import Utility.HashNSaltUtil;
+import Utility.SessionIDUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.javalin.Javalin;
 import io.javalin.core.JavalinConfig;
@@ -44,7 +45,7 @@ public class Main {
             //Get the session id
             User user = userService.getSessionInfo(ctx.header("session"));
             //Check if the session has expired or not.
-            if (user != null){ //remove this condition
+            if (SessionIDUtil.checkSession(user)){
                 //Get the user id associated with the sessionID
                 ctx.json(userService.getUserInfo(user.getId()));
             }
@@ -52,5 +53,28 @@ public class Main {
                 ctx.status(401);
             }
         });
+
+        //Update Password by User ---> /updatepassword
+        app.put("/updatepassword", ctx -> {
+            //Get the session Id
+            User user = userService.getSessionInfo(ctx.header("session"));
+            //User will be sending their old password as well in the header
+            user.setPassword(ctx.header("opwd"));
+
+            //Check if the session has expired or not
+            if (SessionIDUtil.checkSession(user)){
+                if(userService.updatePassword(user, ctx.header("npwd"))){
+                    ctx.status(200);
+                }
+                else {
+                    ctx.status(503);
+                }
+            }
+            else {
+                ctx.status(401);
+            }
+        });
+
+
     }
 }
