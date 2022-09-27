@@ -1,7 +1,7 @@
-package DAO;
+package App.DAO;
 
-import Models.User;
-import Utility.ConnectionUtil;
+import App.Models.User;
+import App.Utility.ConnectionUtil;
 import java.sql.*;
 
 public class UserDAO {

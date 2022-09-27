@@ -1,4 +1,7 @@
-import Models.*;
+import App.Models.HighScoreCard;
+import App.Models.PublishedGame;
+import App.Models.ScoreCard;
+import App.Models.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.javalin.Javalin;
 

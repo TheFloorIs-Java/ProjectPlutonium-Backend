@@ -1,6 +1,6 @@
-package Utility;
+package App.Utility;
 
-import Models.User;
+import App.Models.User;
 
 import java.util.Date;
 import java.util.UUID;
