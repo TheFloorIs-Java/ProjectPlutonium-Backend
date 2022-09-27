@@ -37,6 +37,11 @@ dependencies {
 
     // Bcrypt for Password Hashing and Salting
     implementation "org.mindrot:jbcrypt:0.4"
+
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.7.4'
+
+
 }
 
 test {

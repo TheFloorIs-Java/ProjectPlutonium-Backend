@@ -11,7 +11,7 @@ public class User {
         this.id = -1;
         this.username = "missing";
         this.password = "*****";
-        this.permissionLevel = 0;
+        this.permissionLevel = 0; // user = 0;  admin = 1; system admin = 2
         this.salt = "*****";
         this.sessionId = "missing";
         this.sessionExpiration = null;
