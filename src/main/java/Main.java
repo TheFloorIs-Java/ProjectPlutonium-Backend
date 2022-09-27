@@ -1,5 +1,7 @@
 import Models.User;
 import Service.UserService;
+import Utility.HashNSaltUtil;
+import Utility.SessionIDUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.javalin.Javalin;
 import io.javalin.core.JavalinConfig;
@@ -43,13 +45,59 @@ public class Main {
             //Get the session id
             User user = userService.getSessionInfo(ctx.header("session"));
             //Check if the session has expired or not.
-            if (user != null){ //remove this condition
+            if (SessionIDUtil.checkSession(user)){
                 //Get the user id associated with the sessionID
                 ctx.json(userService.getUserInfo(user.getId()));
             }
             else{
+                userService.deleteSession(user.getSessionId());
                 ctx.status(401);
             }
         });
+
+        //Update Password by User ---> /updatepassword
+        app.put("/updatepassword", ctx -> {
+            //Get the session Id
+            User user = userService.getSessionInfo(ctx.header("session"));
+            //User will be sending their old password as well in the header
+            user.setPassword(ctx.header("opwd"));
+
+            //Check if the session has expired or not
+            if (SessionIDUtil.checkSession(user)){
+                if(userService.updatePassword(user, ctx.header("npwd"))){
+                    ctx.status(200);
+                }
+                else {
+                    ctx.status(503);
+                }
+            }
+            else {
+                userService.deleteSession(user.getSessionId());
+                ctx.status(401);
+            }
+        });
+
+        //Change user's permission level --> /changepermissionlevel
+        app.put("/changepermissionlevel", ctx -> {
+            User user = userService.getSessionInfo(ctx.header("session"));
+
+            if (SessionIDUtil.checkSession(user)){
+                if (userService.changePermissionLevel(user, ctx.header("username"), Integer.parseInt(ctx.header("permissionLevel")))){
+                    ctx.status(200);
+                }
+                else {
+                    ctx.status(401);
+                }
+            }
+            else {
+                ctx.status(401);
+            }
+        });
+
+
+
+
+
+
     }
 }
