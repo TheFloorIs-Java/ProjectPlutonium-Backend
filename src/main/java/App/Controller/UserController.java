@@ -60,4 +60,10 @@ public class UserController {
         User updatedUser = us.updateUserById(id);
         return updatedUser;
     }
+
+    @GetMapping("/users/username/{username}")
+    public User attemptLogin(@PathVariable("username") String username){
+        User user = us.getUserByUsername(username);
+        return  user;
+    }
 }

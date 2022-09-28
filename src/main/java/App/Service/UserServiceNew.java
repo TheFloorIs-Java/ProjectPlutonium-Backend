@@ -28,4 +28,8 @@ public class UserServiceNew {
     public User updateUserById(int id) {
         return null;
     }
+
+    public User getUserByUsername(String username) {
+        return null;
+    }
 }
