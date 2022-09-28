@@ -5,6 +5,7 @@ TABLE#1 : user_info
         password          | varchar | not null
         salt              | varchar | not null
         permission_level  | int     | not null ---> 0 for user & 1 for admin
+        profile_pic_url   | varchar | null varchar(1000)
 
 TABLE#2 : sessions
     Columns:
