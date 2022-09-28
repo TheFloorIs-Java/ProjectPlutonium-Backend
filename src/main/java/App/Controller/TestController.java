@@ -12,6 +12,7 @@ public class TestController {
 
     @Autowired
     public TestController(SpringTestService sts){
+
         this.sts = sts;
     }
     @GetMapping("/")
