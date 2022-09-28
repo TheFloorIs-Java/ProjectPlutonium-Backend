@@ -27,6 +27,7 @@ TABLE#4 : daily_challenge
 
 TABLE#5 : user_scores
     Columns:
+        score_id          | int      | primary key identity (1,1)
         user_id           | int      | foreign key ---> user_info.user_id not null
         published_game_id | int      | foreign key ---> published_games.game_id not null
         date_submitted    | date     | default (current date)
