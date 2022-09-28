@@ -5,20 +5,21 @@ import App.Controller.UserController;
 import App.Models.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestConfiguration;
-import org.springframework.context.annotation.Bean;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 @SpringBootTest
-class UserRepoTest {
+class UserRepoandControllerTest {
+
 
 
 
         @Autowired
         public UserRepository ur;
+        @Autowired
+        public UserController uc;
 
 
         @Test
@@ -43,17 +44,22 @@ class UserRepoTest {
         }
 
         @Test
-    public void getUserByID(){
+        public void getUserByID(){
             User user = ur.findById(3).get();
             System.out.println(user.getUsername());
         }
 
         @Test
-        public void updateUserPermissionLevel(){
+        public void updateUserPermissionLevel() {
             User existingUser = ur.findById(2).get();
             existingUser.setPermission_level(0);
             ur.save(existingUser);
+        }
 
+        @Test
+        public void getUsernameById()
+        {
+        assertEquals("Matt", uc.getUserById(1).getUsername());
         }
 
 
