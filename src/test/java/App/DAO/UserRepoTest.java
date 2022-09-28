@@ -19,7 +19,7 @@ class UserRepoTest {
         @Autowired
         public UserController uc;
         @Autowired
-        public UserRepo ur;
+        public UserRepository ur;
 
 
         @Test
