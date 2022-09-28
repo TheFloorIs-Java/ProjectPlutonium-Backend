@@ -8,23 +8,17 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
 @Entity
-public class PublishedGame {
+public class DailyChallenge {
     @Id
-    private int id;
+    Date date;
     @Column
-    private String title;
-    @Column
-    private String gameType;
-    @Column
-    private String gameData;
-    @Column
-    private User user;
-    @Column
-    private int numberOfPlays;
+    PublishedGame publishedGame;
 }

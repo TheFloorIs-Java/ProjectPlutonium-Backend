@@ -5,24 +5,26 @@ import App.Models.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.javalin.Javalin;
 
+import java.util.Date;
+
 
 public class TempAPI {
 
     static User[] users = {
-            new User(1,"Matt","*****",null,1,null,null,null),
-            new User(2, "Raj", "*****", 1, "*****", null, null),
-            new User(3, "Natalia", "*****", 1, "*****", null, null),
-            new User(4, "Jacob", "*****", 1, "*****", null, null),
-            new User(5, "Corey", "*****", 1, "*****", null, null)
+            new User(1, "Matt", "*****", null, 1, null),
+            new User(2, "Raj", "*****", null, 1, null),
+            new User(3, "Natalia", "*****", null, 1, null),
+            new User(4, "Jacob", "*****",null, 1, null),
+            new User(5, "Corey", "*****", null, 1,null)
     };
     static PublishedGame publishedGame = new PublishedGame(1, "Test Game Title", "Type", "[{'description':'Seek shelter','map':'../../../assets/images/map.png','actions':[{'actionLabel':'search the pizzeria','index':1},{'actionLabel':'search the neaby appartment','index':2},{'actionLabel':'search the mall','index':3}]},{'description':'You are in the pizzeria','map':'../../../assets/images/map.png','actions':[{'actionLabel':'check the oven','index':2},{'actionLabel':'check the perimeter','index':3},{'actionLabel':'step back outside','index':0}]},{'description':'Test 1','map':'../../../assets/images/map.png','actions':[{'actionLabel':'search the pizzaria','index':1},{'actionLabel':'search the neaby appartment','index':2},{'actionLabel':'search the mall','index':3}]},{'description':'Seek shelter','map':'../../../assets/images/map.png','actions':[{'actionLabel':'search the pizzaria','index':1},{'actionLabel':'search the neaby appartment','index':2},{'actionLabel':'search the mall','index':3}]}]".replaceAll("'", "\""), users[2], 6);
 
     static ScoreCard[] scoreCards = {
-            new ScoreCard(users[0], publishedGame, null, 5),
-            new ScoreCard(users[1], publishedGame, null, 10),
-            new ScoreCard(users[2], publishedGame, null, 8),
-            new ScoreCard(users[3], publishedGame, null, 4),
-            new ScoreCard(users[4], publishedGame, null, 20)
+            new ScoreCard(users[0], 1, publishedGame, new Date(), 5),
+            new ScoreCard(users[1], 2, publishedGame, new Date(), 10),
+            new ScoreCard(users[2], 3, publishedGame, new Date(), 8),
+            new ScoreCard(users[3], 4, publishedGame, new Date(), 4),
+            new ScoreCard(users[4], 5, publishedGame, new Date(), 20)
     };
 
     static HighScoreCard[] highScoreCards = {
@@ -68,14 +70,12 @@ public class TempAPI {
         app.post("/login", ctx -> {
             ObjectMapper mapper = new ObjectMapper();
             User requestUser = mapper.readValue(ctx.body(), User.class);
-            requestUser.setSessionId("ThisWouldBeASessionID");
-            ctx.json(requestUser);
+            ctx.result("ThisWouldBeASessionID");
         });
         app.post("/users", ctx -> {
             ObjectMapper mapper = new ObjectMapper();
             User requestUser = mapper.readValue(ctx.body(), User.class);
-            requestUser.setSessionId("ThisWouldBeASessionID");
-            ctx.json(requestUser);
+            ctx.result("ThisWouldBeASessionID");
         });
         app.put("/users/id/{id}", ctx -> ctx.status(200));
 
