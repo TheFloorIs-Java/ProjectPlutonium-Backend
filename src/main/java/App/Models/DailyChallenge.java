@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
@@ -16,9 +13,13 @@ import java.util.Date;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Entity
+@Table(name="daily_challenge")
 public class DailyChallenge {
+
     @Id
-    Date date;
-    @Column
-    PublishedGame publishedGame;
+    Date challenge_date;
+
+    @ManyToOne
+    @JoinColumn(name="published_game_id")
+    PublishedGame published_game;
 }

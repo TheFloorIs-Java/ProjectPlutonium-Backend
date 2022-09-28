@@ -9,8 +9,9 @@ import javax.persistence.Entity;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 public class HighScoreCard {
+
     private User user;
+
     private int score;
 }

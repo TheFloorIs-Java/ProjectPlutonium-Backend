@@ -14,19 +14,23 @@ import java.util.Date;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Entity
+@Table(name="user_scores")
 public class ScoreCard {
 
     @ManyToOne
-    @JoinColumn(name="id")
-    @Column
+    @JoinColumn(name="user_id")
     private User user;
+
     @Id
     @Column
-    private int scoreId;
+    private int score_id;
+
+    @ManyToOne
+    @JoinColumn(name="published_game_id")
+    private PublishedGame published_game;
+
     @Column
-    private PublishedGame publishedGame;
-    @Column
-    private Date date;
+    private Date date_submitted;
     @Column
     private int score;
 
