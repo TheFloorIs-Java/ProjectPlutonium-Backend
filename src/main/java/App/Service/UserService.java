@@ -1,12 +1,11 @@
-package Service;
+package App.Service;
 
-import DAO.UserDAO;
-import Models.User;
-import Utility.HashNSaltUtil;
-import Utility.SessionIDUtil;
+import App.DAO.UserDAO;
+import App.Models.User;
+import App.Utility.HashNSaltUtil;
+import App.Utility.SessionIDUtil;
 
 import java.util.Date;
-import java.util.Set;
 
 //********* From the client side we will receive a user object or make one when the request is received **********:
 public class UserService {

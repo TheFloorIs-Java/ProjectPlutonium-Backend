@@ -1,4 +1,4 @@
-package Models;
+package App.Models;
 
 public class PublishedGame {
     private int id;

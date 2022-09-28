@@ -1,7 +1,6 @@
-import Models.User;
-import Service.UserService;
-import Utility.HashNSaltUtil;
-import Utility.SessionIDUtil;
+import App.Models.User;
+import App.Service.UserService;
+import App.Utility.SessionIDUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.javalin.Javalin;
 import io.javalin.core.JavalinConfig;
