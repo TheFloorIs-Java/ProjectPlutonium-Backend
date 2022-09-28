@@ -11,6 +11,10 @@ public class UserServiceNew {
 
     UserRepo userRepo;
 
+    public UserServiceNew(UserRepo userRepo){
+        this.userRepo = userRepo;
+    }
+
     public User getUserById(int id) {
         return userRepo.findById(id).get();
     }
