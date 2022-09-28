@@ -12,7 +12,6 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
 @Entity
 public class User {
     @Id
@@ -26,9 +25,5 @@ public class User {
     @Column
     int permissionLevel;
     @Column
-    String sessionId;
-    @Column
     String salt;
-    @Column
-    String sessionExpiration;
 }

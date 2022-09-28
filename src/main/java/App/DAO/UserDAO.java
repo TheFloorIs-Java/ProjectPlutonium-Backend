@@ -63,7 +63,7 @@ public class UserDAO {
             preparedStatement.setString(1, username);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                return new User(resultSet.getInt(1), resultSet.getString(2), resultSet.getInt(3));
+                return null;//new User(resultSet.getInt(1), resultSet.getString(2), resultSet.getInt(3));
             }
         } catch (SQLException e) {
             System.out.println("Something went wrong while adding the user: " + username);
@@ -83,7 +83,7 @@ public class UserDAO {
             preparedStatement.setInt(1, user_id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                return new User(resultSet.getInt(1), resultSet.getString(2), resultSet.getInt(3));
+                return null;//new User(resultSet.getInt(1), resultSet.getString(2), resultSet.getInt(3));
             }
         } catch (SQLException e) {
             System.out.println("Something went wrong while adding the user: " + user_id);
@@ -107,9 +107,9 @@ public class UserDAO {
             preparedStatement.setString(1, username);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                return new User(resultSet.getInt(1), resultSet.getString(2),
-                        resultSet.getInt(3), resultSet.getString(4),
-                        resultSet.getString(5));
+                return null; //new User(resultSet.getInt(1), resultSet.getString(2),
+                        //resultSet.getInt(3), resultSet.getString(4),
+                        //resultSet.getString(5));
             }
         } catch (SQLException e) {
             System.out.println("Something went wrong while getting active user info for username: " + username);
@@ -133,9 +133,9 @@ public class UserDAO {
             preparedStatement.setInt(1, userID);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                return new User(resultSet.getInt(1), resultSet.getString(2),
-                        resultSet.getInt(3), resultSet.getString(4),
-                        resultSet.getString(5));
+                return null;//new User(resultSet.getInt(1), resultSet.getString(2),
+                        //resultSet.getInt(3), resultSet.getString(4),
+                        //resultSet.getString(5));
             }
         } catch (SQLException e) {
             System.out.println("Something went wrong while getting active user info for userID: " + userID);
@@ -217,8 +217,8 @@ public class UserDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 User user  = getUser(resultSet.getInt(1));
-                user.setSessionId(resultSet.getString(2));
-                user.setSessionExpiration(resultSet.getString(3));
+                //user.setSessionId(resultSet.getString(2));
+                //user.setSessionExpiration(resultSet.getString(3));
                 return user;
             }
         } catch (SQLException e) {
