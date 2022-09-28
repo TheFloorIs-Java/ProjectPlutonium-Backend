@@ -70,14 +70,12 @@ public class TempAPI {
         app.post("/login", ctx -> {
             ObjectMapper mapper = new ObjectMapper();
             User requestUser = mapper.readValue(ctx.body(), User.class);
-            requestUser.setSessionId("ThisWouldBeASessionID");
-            ctx.re(requestUser);
+            ctx.result("ThisWouldBeASessionID");
         });
         app.post("/users", ctx -> {
             ObjectMapper mapper = new ObjectMapper();
             User requestUser = mapper.readValue(ctx.body(), User.class);
-            requestUser.setSessionId("ThisWouldBeASessionID");
-            ctx.json(requestUser);
+            ctx.result("ThisWouldBeASessionID");
         });
         app.put("/users/id/{id}", ctx -> ctx.status(200));
 
