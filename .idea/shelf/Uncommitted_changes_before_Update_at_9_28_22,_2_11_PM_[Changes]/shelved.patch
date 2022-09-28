@@ -1,0 +1,41 @@
+Index: src/main/java/App/Controller/UserController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package App.Controller;\n\nimport App.Models.*;\nimport App.Service.SpringTestService;\nimport App.Service.UserServiceNew;\n\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.web.bind.annotation.*;\n\nimport java.util.List;\nimport java.util.Map;\n\n@RestController\npublic class UserController {\n\n    private final SpringTestService sts;\n    private final UserServiceNew us;\n\n    @Autowired\n    public UserController(SpringTestService sts, UserServiceNew us){\n        this.sts = sts;\n        this.us = us;\n    }\n\n\n    @GetMapping(\"/users/id/{id}\")\n    public User getUserById(@PathVariable(\"id\") int id){\n        User user = us.getUserById(id);\n        return user;\n    }\n\n    @GetMapping(\"/users/session\")\n    public User getUserBySession(@RequestHeader Map<String, String> headers){\n        User user = null;\n        if (headers.get(\"session\") != null)\n            user = us.getUserBySession(headers.get(\"session\"));\n        return user;\n    }\n\n    @GetMapping(\"/users/all\")\n    public List<User> getAllUsers(){\n        List<User> users = us.getAllUsers();\n        return users;\n    }\n\n    @GetMapping(\"/login\")\n    public User attemptLogin(@RequestBody User user){\n        User loggedInUser = us.AttemptLogin(user);\n        return loggedInUser;\n    }\n\n    @PostMapping(\"/users\")\n    public User registerUsers(@RequestBody User user){\n        User registeredInUser = us.AttemptRegister(user);\n        return registeredInUser;\n    }\n\n    @PutMapping(\"/users/id/{id}\")\n    public User updateUserById(@PathVariable(\"id\") int id, @RequestBody User user){\n        User updatedUser = us.updateUserById(id);\n        return updatedUser;\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/App/Controller/UserController.java b/src/main/java/App/Controller/UserController.java
+--- a/src/main/java/App/Controller/UserController.java	(revision a586dcbf7a37e6f2ca7d0e82b6826f28863e2d78)
++++ b/src/main/java/App/Controller/UserController.java	(date 1664392221199)
+@@ -60,4 +60,10 @@
+         User updatedUser = us.updateUserById(id);
+         return updatedUser;
+     }
++
++    @GetMapping("/users/username/{username}")
++    public User attemptLogin(@PathVariable("username") String username){
++        User user = us.getUserByUsername(username);
++        return  user;
++    }
+ }
+\ No newline at end of file
+Index: src/main/java/App/Service/UserServiceNew.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package App.Service;\n\nimport App.Models.User;\nimport org.springframework.stereotype.Component;\n\nimport java.util.List;\n\n@Component\npublic class UserServiceNew {\n    public User getUserById(int id) {\n        return null;\n    }\n\n    public User getUserBySession(String session) {\n        return null;\n    }\n\n    public List<User> getAllUsers() {\n        return null;\n    }\n\n    public User AttemptLogin(User user) {\n        return null;\n    }\n\n    public User AttemptRegister(User user) {\n        return null;\n    }\n\n    public User updateUserById(int id) {\n        return null;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/App/Service/UserServiceNew.java b/src/main/java/App/Service/UserServiceNew.java
+--- a/src/main/java/App/Service/UserServiceNew.java	(revision a586dcbf7a37e6f2ca7d0e82b6826f28863e2d78)
++++ b/src/main/java/App/Service/UserServiceNew.java	(date 1664392221199)
+@@ -30,4 +30,8 @@
+     public User updateUserById(int id) {
+         return null;
+     }
++
++    public User getUserByUsername(String username) {
++        return null;
++    }
+ }

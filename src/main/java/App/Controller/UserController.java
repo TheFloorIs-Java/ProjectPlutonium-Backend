@@ -57,7 +57,7 @@ public class UserController {
 
     @PutMapping("/users/id/{id}")
     public User updateUserById(@PathVariable("id") int id, @RequestBody User user){
-        User updatedUser = us.updateUserById(id);
+        User updatedUser = us.updateUserById(user, id);
         return updatedUser;
     }
 }

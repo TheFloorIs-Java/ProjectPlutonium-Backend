@@ -1,5 +1,6 @@
 package App.Service;
 
+import App.DAO.UserRepo;
 import App.Models.User;
 import org.springframework.stereotype.Component;
 
@@ -7,8 +8,11 @@ import java.util.List;
 
 @Component
 public class UserServiceNew {
+
+    UserRepo userRepo;
+
     public User getUserById(int id) {
-        return null;
+        return userRepo.findById(id).get();
     }
 
     public User getUserBySession(String session) {
@@ -16,7 +20,7 @@ public class UserServiceNew {
     }
 
     public List<User> getAllUsers() {
-        return null;
+        return userRepo.findAll();
     }
 
     public User AttemptLogin(User user) {
@@ -24,10 +28,11 @@ public class UserServiceNew {
     }
 
     public User AttemptRegister(User user) {
-        return null;
+        return userRepo.save(user);
     }
 
-    public User updateUserById(int id) {
+    public User updateUserById(User user, int id) {
+        //will put a condition to check if the user exists in the database but for now you can update.
         return null;
     }
 }
