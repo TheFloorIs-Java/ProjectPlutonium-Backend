@@ -1,9 +1,6 @@
 package App.Models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table(name="user_info")
+@Builder
 public class User {
 
     @Id
