@@ -4,11 +4,13 @@ import java.util.Date;
 
 public class ScoreCard {
     private User user;
+    private int scoreId;
     private PublishedGame publishedGame;
     private Date date;
     private int score;
 
     public ScoreCard() {
+        this.scoreId = -1;
         this.user = new User();
         this.publishedGame = new PublishedGame();
         this.date = new Date(0);
