@@ -2,7 +2,7 @@ package App.Controller;
 
 import App.Models.*;
 import App.Service.SpringTestService;
-import App.Service.UserServiceNew;
+import App.Service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,10 +14,10 @@ import java.util.Map;
 public class UserController {
 
     private final SpringTestService sts;
-    private final UserServiceNew us;
+    private final UserService us;
 
     @Autowired
-    public UserController(SpringTestService sts, UserServiceNew us){
+    public UserController(SpringTestService sts, UserService us){
         this.sts = sts;
         this.us = us;
     }
