@@ -5,33 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48055988-7bd7-4aaa-a035-74119da432d0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Controler/PublishedGameControler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Controler/ScoreCardControler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Controler/TestControler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Controler/UserControler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/DAO/PublishedGameRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/DAO/ScoreCardRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/DAO/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Service/PublishedGameService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Service/ScoreCardService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/App/Service/SpringTestService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/TableInfo" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/DAO/TableInfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/DAO/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/HighScoreCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Models/HighScoreCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/PublishedGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Models/PublishedGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/ScoreCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Models/ScoreCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TempAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TempAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/ConnectionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Utility/ConnectionUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/HashNSaltUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Utility/HashNSaltUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/SessionIDUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App/Utility/SessionIDUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
