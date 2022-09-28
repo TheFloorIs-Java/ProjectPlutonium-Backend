@@ -1,5 +1,6 @@
 package App.Controller;
 
+import App.Models.DailyChallenge;
 import App.Models.PublishedGame;
 import App.Service.PublishedGameService;
 import App.Service.SpringTestService;
@@ -21,21 +22,25 @@ public class PublishedGameController {
     public PublishedGameController(PublishedGameService pgs){
         this.pgs = pgs;
     }
+
+    //Grabs a game by the id
     @GetMapping("/publishedGames/id/{id}")
     public PublishedGame getPublishedGameById(@PathVariable("id") int id){
         PublishedGame pg = pgs.getPublishedGameById(id);
         return pg;
     }
 
+    //Grabs a list of games made by a user
     @GetMapping("/publishedGames/userId/{id}")
     public List<PublishedGame> getPublishedGamesById(@PathVariable("id") int userid) {
-        ArrayList<PublishedGame> lgm = pgs.getPublishedGamesById(userid);
-        return lgm;
+        ArrayList<PublishedGame> lpg = pgs.getPublishedGamesById(userid);
+        return lpg;
     }
 
+    //Grabs a daily challenge by its set date.
     @GetMapping("/publishedGames/date/{date}")
-    public PublishedGame getGameOfTheDayByDate(@PathVariable("date") String date){
-        PublishedGame gm = pgs.getGameOfTheDayByDate(date);
-        return gm;
+    public DailyChallenge getDailyChallengeByDate(@PathVariable("date") String date){
+        DailyChallenge dc = pgs.getDailyChallengeByDate(date);
+        return dc;
     }
 }

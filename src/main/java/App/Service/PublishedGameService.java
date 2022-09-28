@@ -1,5 +1,6 @@
 package App.Service;
 
+import App.Models.DailyChallenge;
 import App.Models.PublishedGame;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ public class PublishedGameService {
         return null;
     }
 
-    public PublishedGame getGameOfTheDayByDate(String date) {
+    public DailyChallenge getDailyChallengeByDate(String date) {
         return null;
     }
 }
