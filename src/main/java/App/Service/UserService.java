@@ -1,15 +1,19 @@
 package App.Service;
 
-import App.DAO.UserRepo;
+import App.DAO.UserRepository;
 import App.Models.User;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
-public class UserServiceNew {
+public class UserService {
 
-    UserRepo userRepo;
+    UserRepository userRepo;
+
+    public UserService(UserRepository userRepo){
+        this.userRepo = userRepo;
+    }
 
     public User getUserById(int id) {
         return userRepo.findById(id).get();

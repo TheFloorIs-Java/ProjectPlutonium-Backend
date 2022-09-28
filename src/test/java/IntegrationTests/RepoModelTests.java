@@ -2,7 +2,7 @@ package IntegrationTests;
 
 
 import App.App;
-import App.DAO.ScoreCardRepo;
+import App.DAO.ScoreCardRepository;
 import App.Service.ScoreCardService;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -20,7 +20,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 public class RepoModelTests {
 
-    ScoreCardRepo scr;
+    ScoreCardRepository scr;
     static ScoreCardService scs;
 
 
