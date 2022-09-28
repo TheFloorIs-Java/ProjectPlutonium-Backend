@@ -9,7 +9,7 @@ import io.javalin.Javalin;
 public class TempAPI {
 
     static User[] users = {
-            new User(1, "Matt", "*****", 1, "*****", null, null),
+            new User(1,"Matt","*****",null,1,null,null,null),
             new User(2, "Raj", "*****", 1, "*****", null, null),
             new User(3, "Natalia", "*****", 1, "*****", null, null),
             new User(4, "Jacob", "*****", 1, "*****", null, null),
