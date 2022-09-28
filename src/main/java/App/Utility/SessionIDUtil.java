@@ -1,5 +1,6 @@
 package App.Utility;
 
+import App.Models.Session;
 import App.Models.User;
 
 import java.util.Date;
@@ -19,9 +20,9 @@ public class SessionIDUtil {
             1. user ID  2. session ID  3. session Expiry
         OutPut: boolean true if the session is valid or false otherwise.
     */
-    public static boolean checkSession(User user){
+    public static boolean checkSession(Session session){
         //check if the session has expired or not.
-        Date dateuser = new Date(Long.parseLong(user.getSessionExpiration()));
+        Date dateuser = session.getSession_expiry();
         Date datenow = new Date();
         if (datenow.after(dateuser)){
             return false;
@@ -29,13 +30,4 @@ public class SessionIDUtil {
         return true;
     }
 
-    public static boolean checkSession(String date){
-        //check if the session has expired or not.
-        Date dateuser = new Date(Long.parseLong(date));
-        Date datenow = new Date();
-        if (datenow.after(dateuser)){
-            return false;
-        }
-        return true;
-    }
 }

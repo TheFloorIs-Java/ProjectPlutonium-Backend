@@ -1,9 +1,11 @@
 package App.Service;
 
 import App.Models.User;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class UserServiceNew {
     public User getUserById(int id) {
         return null;
