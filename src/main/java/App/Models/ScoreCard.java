@@ -1,58 +1,33 @@
 package App.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 import java.util.Date;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
+@Entity
 public class ScoreCard {
+
+    @ManyToOne
+    @JoinColumn(name="id")
+    @Column
     private User user;
+    @Id
+    @Column
     private int scoreId;
+    @Column
     private PublishedGame publishedGame;
+    @Column
     private Date date;
+    @Column
     private int score;
 
-    public ScoreCard() {
-        this.scoreId = -1;
-        this.user = new User();
-        this.publishedGame = new PublishedGame();
-        this.date = new Date(0);
-        this.score = -1;
-    }
-
-    public ScoreCard(User user, PublishedGame publishedGame, Date date, int score) {
-        this.user = user;
-        this.publishedGame = publishedGame;
-        this.date = date;
-        this.score = score;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public PublishedGame getPublishedGame() {
-        return publishedGame;
-    }
-
-    public void setPublishedGame(PublishedGame publishedGame) {
-        this.publishedGame = publishedGame;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
 }
