@@ -21,12 +21,13 @@ public class UserService {
         return userRepo.findById(id).get();
     }
 
-    public User getUserBySession(String session) {
-        return null;
-    }
-
     public List<User> getAllUsers() {
-        return userRepo.findAll();
+        List<User> users = userRepo.findAll();
+        for (int i = 0; i < users.size(); i++){
+            users.get(i).setPassword(null);
+            users.get(i).setSalt(null);
+        }
+        return users;
     }
 
     public User AttemptLogin(User user) {
