@@ -11,10 +11,17 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
-
+@Configuration
 @SpringBootApplication
 public class App {
 
+
+
+    public static void main(String[] args) {
+        SpringApplication.run(App.class);
+
+
+    }
     @Configuration
     public class DatasourceConfig {
         @Bean
@@ -27,10 +34,6 @@ public class App {
                     .build();
 
         }
-    }
-
-    public static void main(String[] args) {
-        SpringApplication.run(App.class);
     }
 
 
