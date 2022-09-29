@@ -49,7 +49,9 @@ public class UserController {
 
     @GetMapping("/login")
     public Session attemptLogin(@RequestBody User user){
+        System.out.println(user.getUsername()+" "+user.getPassword());
         User loggedInUser = us.AttemptLogin(user);
+        System.out.println(loggedInUser.getUsername()+" "+loggedInUser.getPassword());
         Session session = null;
         if (loggedInUser != null){
             session = ss.newSession(user);

@@ -38,8 +38,9 @@ public class SessionService {
     public Session getSessionInfo(String sessionId){
 
         Session session =  sessionRepo.findSessionBySession_id(sessionId);
-
-            return session;
+        session.getUser().setPassword(null);
+        session.getUser().setSalt(null);
+        return session;
     }
 
 

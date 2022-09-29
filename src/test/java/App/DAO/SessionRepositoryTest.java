@@ -30,7 +30,7 @@ class SessionRepositoryTest {
 
     @Test
     void deleteSession(){
-        String session = "c5e3cc04-d0f8-4061-bdb5-125343e05042";
+        String session = "afe073bb-52d5-4a1a-be5e-825697f8196e";
         sessionSer.deleteSession(session);
     }
 
