@@ -14,7 +14,6 @@ import javax.sql.DataSource;
 
 
 @SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
-@Configuration
 @AutoConfiguration
 public class App {
 
@@ -25,7 +24,7 @@ public class App {
 
 
     }
-    @Configuration
+   /* @Configuration
     public class DatasourceConfig {
         @Bean
         public DataSource datasource() {
@@ -38,6 +37,8 @@ public class App {
 
         }
     }
+
+    */
 
 
 
