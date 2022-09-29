@@ -15,12 +15,17 @@ import java.util.Date;
 @Table(name="sessions")
 public class Session {
 
-    @OneToOne
-    @JoinColumn(name="user_id")
+
+    @OneToOne(
+            fetch = FetchType.EAGER
+    )
+    @JoinColumn(name="user_id", referencedColumnName = "user_id")
     User user;
 
     @Id
+    @Column
     String session_id;
 
+    @Column//changed
     Date session_expiry;
 }

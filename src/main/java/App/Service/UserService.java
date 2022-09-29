@@ -2,12 +2,14 @@ package App.Service;
 
 import App.DAO.UserRepository;
 import App.Models.User;
+import App.Utility.HashNSaltUtil;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
 public class UserService {
+
 
     UserRepository userRepo;
 
@@ -28,11 +30,28 @@ public class UserService {
     }
 
     public User AttemptLogin(User user) {
-        return null;
+        //encrypting the password
+        String username = user.getUsername();
+        user.setSalt(userRepo.findUserByUsername(username).getSalt());
+        user.setPassword(HashNSaltUtil.saltAndHash(user.getPassword(), user.getSalt()));
+        user = userRepo.findUserByUsernameAndPasswordAndSalt(user.getUsername(), user.getPassword(), user.getSalt());
+        if (user!=null){
+            return user;
+        }
+        else {
+            return null;
+        }
     }
 
     public User AttemptRegister(User user) {
-        return userRepo.save(user);
+        user.setSalt(HashNSaltUtil.generateSalt());
+        user.setPassword(HashNSaltUtil.saltAndHash(user.getPassword(), user.getSalt()));
+        try{
+            return userRepo.save(user);
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 
     public User updateUserById(User user, int id) {

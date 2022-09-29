@@ -3,6 +3,7 @@ package App.DAO;
 import App.App;
 import App.Controller.UserController;
 import App.Models.User;
+import App.Service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest
-class UserRepoandControllerTest {
+class UserRepoServiceandControllerTest {
 
 
 
@@ -20,6 +21,9 @@ class UserRepoandControllerTest {
         public UserRepository ur;
         @Autowired
         public UserController uc;
+
+        @Autowired
+        public UserService us;
 
 
         @Test
@@ -54,6 +58,23 @@ class UserRepoandControllerTest {
             User existingUser = ur.findById(2).get();
             existingUser.setPermission_level(0);
             ur.save(existingUser);
+        }
+
+        @Test
+        void tryUserLogin(){
+            User user = new User();
+            user.setUsername("laalsanedo");
+            user.setPassword("2525");
+            us.AttemptLogin(user);
+        }
+
+        @Test
+        void tryUserRegister(){ //Can be null
+            User user = new User();
+            user.setUsername("laalsanedo");
+            user.setPassword("2525");
+            user.setProfile_pic_url("https://cdn-1.motorsport.com/images/mgl/63vVbllY/s1200/max-verstappen-red-bull-racing-1.webp");
+            us.AttemptRegister(user);
         }
 
         @Test
