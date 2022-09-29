@@ -49,11 +49,7 @@ public class SessionService {
         Date date = new Date();
         date.setTime(date.getTime()+86400000);
 
-        Session session = Session.builder()
-                .session_id(SessionIDUtil.getSessionID().toString())
-                .session_expiry(date)
-                .user(user)
-                .build();
+        Session session = new Session(user, SessionIDUtil.getSessionID().toString(), date);
 
         return sessionRepo.save(session);
     }

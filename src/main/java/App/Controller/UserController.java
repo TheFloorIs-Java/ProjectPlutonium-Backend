@@ -5,7 +5,10 @@ import App.Service.SessionService;
 import App.Service.SpringTestService;
 import App.Service.UserService;
 
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -48,15 +51,14 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public Session attemptLogin(@RequestBody User user){
-        System.out.println(user.getUsername()+" "+user.getPassword());
+    public ResponseEntity<Session> attemptLogin(@RequestBody User user){
         User loggedInUser = us.AttemptLogin(user);
-        System.out.println(loggedInUser.getUsername()+" "+loggedInUser.getPassword());
         Session session = null;
         if (loggedInUser != null){
-            session = ss.newSession(user);
+            session = ss.newSession(loggedInUser);
+            return new ResponseEntity<>(session, HttpStatus.OK);
         }
-        return session;
+        return null;
     }
 
     @PostMapping("/users")
