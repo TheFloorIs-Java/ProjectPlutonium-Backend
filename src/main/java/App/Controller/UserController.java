@@ -62,9 +62,14 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public User registerUsers(@RequestBody User user){
+    public Session registerUsers(@RequestBody User user){
         User registeredInUser = us.AttemptRegister(user);
-        return registeredInUser;
+        Session session = null;
+        if (registeredInUser != null){
+            session = ss.newSession(registeredInUser);
+            return session;
+        }
+        return null;
     }
 
     @PutMapping("/users/id/{id}")

@@ -50,7 +50,8 @@ public class SessionService {
         date.setTime(date.getTime()+86400000);
 
         Session session = new Session(user, SessionIDUtil.getSessionID().toString(), date);
-
+        session.getUser().setSalt(null);
+        session.getUser().setPassword(null);
         return sessionRepo.save(session);
     }
 
