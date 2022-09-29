@@ -33,8 +33,9 @@ dependencies {
 
 
     //Temporary until we start Spring
-    // https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc
-    implementation group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '11.2.1.jre17'
+// https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc
+    implementation group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '11.2.1.jre8'
+
 
     //Temporary until we start Spring
     // https://mvnrepository.com/artifact/io.javalin/javalin
