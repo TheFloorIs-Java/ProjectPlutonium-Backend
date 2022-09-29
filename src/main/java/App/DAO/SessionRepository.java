@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Repository
 public interface SessionRepository  extends JpaRepository<Session, Integer> {
@@ -20,5 +21,7 @@ public interface SessionRepository  extends JpaRepository<Session, Integer> {
             nativeQuery = true
     )
     void deleteSessionBySession_id(String session);
+
+    Optional<Session> findSessionByUser(User user);
 
 }

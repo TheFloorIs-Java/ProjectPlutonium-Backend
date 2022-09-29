@@ -12,14 +12,25 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.Entity;
 import java.util.Date;
+import java.util.Optional;
 
 @Component
 public class SessionService {
 
     @Autowired
     SessionRepository sessionRepo;
-    public Session getSessionInfo(int userId){
-        return sessionRepo.getReferenceById(userId);
+    public Session getSessionInfo(User user){
+
+        Optional<Session> session =  sessionRepo.findSessionByUser(user);
+        if (session.isPresent()){
+            Session session1 = session.get();
+            session1.getUser().setPassword(null);
+            session1.getUser().setSalt(null);
+            return session1;
+        }
+        else {
+            return null;
+        }
     }
 
     public Session newSession(User user){

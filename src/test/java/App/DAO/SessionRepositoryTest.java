@@ -32,6 +32,17 @@ class SessionRepositoryTest {
         sessionSer.deleteSession(session);
     }
 
+    @Test
+    void getSession(){
+        User user = User.builder()
+                .user_id(1)
+                .build();
+        Session session = sessionSer.getSessionInfo(user);
+        session.getUser().setPassword(null);
+        session.getUser().setSalt(null);
+        System.out.println(session);
+    }
+
 
 
 
