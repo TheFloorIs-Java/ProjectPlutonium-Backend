@@ -20,24 +20,7 @@ public class App {
 
     public static void main(String[] args) {
         SpringApplication.run(App.class);
-
-
     }
-    @Configuration
-    public class DatasourceConfig {
-        @Bean
-        public DataSource datasource() {
-            return DataSourceBuilder.create()
-                    .driverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver")
-                    .url("jdbc:sqlserver://projecttwoserver.database.windows.net:1433;database=p2db;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30")
-                    .username("jacob367")
-                    .password("Plut0nium")
-                    .build();
-
-        }
-    }
-
-
 
 
 
