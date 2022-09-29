@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -43,6 +45,12 @@ class SessionRepositoryTest {
         System.out.println(session);
     }
 
+    @Test
+    void getSession1(){
+        String sess = "afe073bb-52d5-4a1a-be5e-825697f8196e";
+        Session session = sessionSer.getSessionInfo(sess);
+        System.out.println(session);
+    }
 
 
 

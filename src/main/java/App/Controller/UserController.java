@@ -1,6 +1,7 @@
 package App.Controller;
 
 import App.Models.*;
+import App.Service.SessionService;
 import App.Service.SpringTestService;
 import App.Service.UserService;
 
@@ -16,10 +17,13 @@ public class UserController {
     private final SpringTestService sts;
     private final UserService us;
 
+    private final SessionService ss;
+
     @Autowired
-    public UserController(SpringTestService sts, UserService us){
+    public UserController(SpringTestService sts, UserService us, SessionService ss){
         this.sts = sts;
         this.us = us;
+        this.ss = ss;
     }
 
 
@@ -30,11 +34,11 @@ public class UserController {
     }
 
     @GetMapping("/users/session")
-    public User getUserBySession(@RequestHeader Map<String, String> headers){
-        User user = null;
+    public Session getUserBySession(@RequestHeader Map<String, String> headers){
+        Session session = null;
         if (headers.get("session") != null)
-            user = us.getUserBySession(headers.get("session"));
-        return user;
+            session = ss.getSessionInfo(headers.get("session"));
+        return session;
     }
 
     @GetMapping("/users/all")
@@ -44,9 +48,13 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public User attemptLogin(@RequestBody User user){
+    public Session attemptLogin(@RequestBody User user){
         User loggedInUser = us.AttemptLogin(user);
-        return loggedInUser;
+        Session session = null;
+        if (loggedInUser != null){
+            session = ss.newSession(user);
+        }
+        return session;
     }
 
     @PostMapping("/users")
