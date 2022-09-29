@@ -1,26 +1,30 @@
 package App.Models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
 
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 @Table(name="sessions")
+@ToString
+@Builder
 public class Session {
 
-    @OneToOne
-    @JoinColumn(name="user_id")
+
+    @OneToOne(
+            fetch = FetchType.EAGER
+    )
+    @JoinColumn(name="user_id", referencedColumnName = "user_id")
     User user;
 
     @Id
+    @Column
     String session_id;
 
+    @Column//changed
     Date session_expiry;
 }

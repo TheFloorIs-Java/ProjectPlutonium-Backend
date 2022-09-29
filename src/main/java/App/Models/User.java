@@ -10,20 +10,21 @@ import java.util.Date;
 @Entity
 @Table(name="user_info")
 @Builder
+@ToString
 public class User {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    int user_id;
+    private int user_id;
     @Column
-    String username;
+    private String username;
     @Column
-    String password;
+    private String password;
     @Column
-    String profile_pic_url;
+    private String profile_pic_url;
     @Column
-    int permission_level;
+    private int permission_level;
     @Column
-    String salt;
+    private String salt;
 
 }
