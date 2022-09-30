@@ -37,13 +37,13 @@ public class UserController {
     }
 
     @GetMapping("/users/session")
-    public Session getUserBySession(@RequestHeader Map<String, String> headers){
+    public User getUserBySession(@RequestHeader Map<String, String> headers){
         Session session = null;
         if (headers.get("session") != null) {
             System.out.println(headers.get("session"));
             session = ss.getSessionInfo(headers.get("session"));
         }
-        return session;
+        return session.getUser();
     }
 
     @GetMapping("/users/all")
