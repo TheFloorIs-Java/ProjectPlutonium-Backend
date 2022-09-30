@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+
+@CrossOrigin
 public class UserController {
 
     private final SpringTestService sts;
@@ -52,7 +54,7 @@ public class UserController {
         return users;
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<Session> attemptLogin(@RequestBody User user){
         User loggedInUser = us.AttemptLogin(user);
         Session session = null;
