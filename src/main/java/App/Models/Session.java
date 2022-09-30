@@ -1,5 +1,6 @@
 package App.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -14,14 +15,17 @@ import java.util.Date;
 @Builder
 public class Session {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @OneToOne(
+            cascade = CascadeType.ALL,
             fetch = FetchType.EAGER
     )
     @JoinColumn(name="user_id", referencedColumnName = "user_id")
     User user;
 
-    @Id
     @Column
     String session_id;
 

@@ -45,14 +45,28 @@ public class SessionService {
 
 
     public Session newSession(User user){
-
         Date date = new Date();
-        date.setTime(date.getTime()+86400000);
+        date.setTime(date.getTime()+84000000);
+        Optional<Session> optionalSession = sessionRepo.findSessionByUser(user);
+        if (optionalSession.isPresent()){
+            Session session = optionalSession.get();
+            session.setSession_expiry(date);
+            session.setSession_id(SessionIDUtil.getSessionID().toString());
+            session = sessionRepo.save(session);
+            session.getUser().setPassword(null);
+            session.getUser().setSalt(null);
+            return session;
 
-        Session session = new Session(user, SessionIDUtil.getSessionID().toString(), date);
-        session.getUser().setSalt(null);
+        }
+        Session session = Session.builder()
+                .session_expiry(date)
+                .session_id(SessionIDUtil.getSessionID().toString())
+                .user(user)
+                .build();
+        session = sessionRepo.save(session);
         session.getUser().setPassword(null);
-        return sessionRepo.save(session);
+        session.getUser().setSalt(null);
+        return session;
     }
 
     public void deleteSession(String session){
