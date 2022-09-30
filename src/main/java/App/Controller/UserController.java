@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+
+@CrossOrigin
 public class UserController {
 
     private final SpringTestService sts;
@@ -37,13 +39,13 @@ public class UserController {
     }
 
     @GetMapping("/users/session")
-    public Session getUserBySession(@RequestHeader Map<String, String> headers){
+    public User getUserBySession(@RequestHeader Map<String, String> headers){
         Session session = null;
         if (headers.get("session") != null) {
             System.out.println(headers.get("session"));
             session = ss.getSessionInfo(headers.get("session"));
         }
-        return session;
+        return session.getUser();
     }
 
     @GetMapping("/users/all")
@@ -52,7 +54,7 @@ public class UserController {
         return users;
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<Session> attemptLogin(@RequestBody User user){
         User loggedInUser = us.AttemptLogin(user);
         Session session = null;
