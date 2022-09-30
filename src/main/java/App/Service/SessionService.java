@@ -37,7 +37,12 @@ public class SessionService {
 
     public Session getSessionInfo(String sessionId){
 
-        Session session =  sessionRepo.findSessionBySession_id(sessionId);
+        Session session = sessionRepo.findSessionBySession_id(sessionId);
+
+        if (session == null){
+            System.out.println("Session not found for user.");
+            return null;
+        }
         session.getUser().setPassword(null);
         session.getUser().setSalt(null);
         return session;
@@ -74,4 +79,7 @@ public class SessionService {
         sessionRepo.deleteSessionBySession_id(session);
     }
 
+    public List<Session> getAllSessions() {
+        return sessionRepo.findAll();
+    }
 }

@@ -1,6 +1,7 @@
 package App.Service;
 
 import App.DAO.UserRepository;
+import App.Models.Session;
 import App.Models.User;
 import App.Utility.HashNSaltUtil;
 import org.springframework.stereotype.Component;
@@ -59,4 +60,5 @@ public class UserService {
         //will put a condition to check if the user exists in the database but for now you can update.
         return null;
     }
+
 }

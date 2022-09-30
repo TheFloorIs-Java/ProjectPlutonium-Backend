@@ -27,7 +27,7 @@ public interface SessionRepository  extends JpaRepository<Session, Integer> {
     Optional<Session> findSessionByUser(User user);
 
     @Query(
-            value = "select user_info.user_id, username, permission_level, session_id, session_expiry from sessions join user_info on sessions.user_id = user_info.user_id " +
+            value = "select user_info.user_id, username, permission_level, session_id, session_expiry, id from sessions join user_info on sessions.user_id = user_info.user_id " +
                     "where session_id = ?1",
             nativeQuery = true
     )

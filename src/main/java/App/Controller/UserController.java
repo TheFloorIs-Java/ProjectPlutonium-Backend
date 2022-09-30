@@ -39,8 +39,10 @@ public class UserController {
     @GetMapping("/users/session")
     public Session getUserBySession(@RequestHeader Map<String, String> headers){
         Session session = null;
-        if (headers.get("session") != null)
+        if (headers.get("session") != null) {
+            System.out.println(headers.get("session"));
             session = ss.getSessionInfo(headers.get("session"));
+        }
         return session;
     }
 
@@ -76,5 +78,11 @@ public class UserController {
     public User updateUserById(@PathVariable("id") int id, @RequestBody User user){
         User updatedUser = us.updateUserById(user, id);
         return updatedUser;
+    }
+
+    @GetMapping("/sessions/all")
+    public List<Session> getAllSessions(){
+        List<Session> sessions = ss.getAllSessions();
+        return sessions;
     }
 }
