@@ -1,9 +1,6 @@
 package App.Models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -13,6 +10,7 @@ import javax.persistence.*;
 @EqualsAndHashCode
 @Entity
 @Table(name="published_games")
+@Builder
 public class PublishedGame {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)

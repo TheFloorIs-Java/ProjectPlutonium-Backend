@@ -1,10 +1,7 @@
 package App.Models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -15,17 +12,23 @@ import java.util.Date;
 @EqualsAndHashCode
 @Entity
 @Table(name="user_scores")
+@Builder
+@ToString()
 public class ScoreCard {
 
-    @ManyToOne
+    @ManyToOne(
+            fetch = FetchType.EAGER
+    )
     @JoinColumn(name="user_id")
     private User user;
 
     @Id
-    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int score_id;
 
-    @ManyToOne
+    @ManyToOne(
+            fetch = FetchType.EAGER
+    )
     @JoinColumn(name="published_game_id")
     private PublishedGame published_game;
 
@@ -33,5 +36,7 @@ public class ScoreCard {
     private Date date_submitted;
     @Column
     private int score;
+
+
 
 }

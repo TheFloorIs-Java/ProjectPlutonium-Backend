@@ -5,6 +5,9 @@ import App.Service.ScoreCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Map;
+
 @RestController
 @CrossOrigin
 public class ScoreCardController {
@@ -18,14 +21,15 @@ public class ScoreCardController {
     }
 
     @GetMapping("/scorecard/id")
-    public ScoreCard getScoreCardByPlayerId(){
-        return scs.getScoreCardByPlayerId();
+    public List<ScoreCard> getScoreCardByPlayerId(@RequestHeader Map<String, String> id){
+        return scs.getScoreCardByPlayerId(Integer.parseInt(id.get("id")));
     }
 
     @PostMapping("/scorecard")
-    public ScoreCard addScoreByPlayerId(@RequestBody ScoreCard scoreCard){
-        scs.addScoreCard(scoreCard);
-        return scs.getScoreCardByPlayerId();
+    public ScoreCard addScoreByPlayerId(@RequestHeader Map<String, String> headers){
+        return scs.addScoreCard(Integer.parseInt(headers.get("score")),
+                Integer.parseInt(headers.get("user_id")),
+                Integer.parseInt(headers.get("game_id")));
     }
 
 }
