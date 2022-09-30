@@ -48,7 +48,6 @@ public class SessionService {
         return session;
     }
 
-
     public Session newSession(User user){
         Date date = new Date();
         date.setTime(date.getTime()+84000000);
