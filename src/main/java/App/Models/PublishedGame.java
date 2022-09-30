@@ -15,6 +15,7 @@ import javax.persistence.*;
 @Table(name="published_games")
 public class PublishedGame {
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int game_id;
     @Column
     private String game_title;
