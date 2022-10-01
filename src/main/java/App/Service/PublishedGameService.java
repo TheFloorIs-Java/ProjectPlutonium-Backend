@@ -29,4 +29,8 @@ public class PublishedGameService {
         user.setUser_id(id);
         return pgr.findPublishedGameByUser(user);
     }
+
+    public List<PublishedGame> getAllPublishedGames() {
+        return pgr.findAll();
+    }
 }

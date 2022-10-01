@@ -22,7 +22,7 @@ public class PublishedGameController {
     }
 
     //Creates a new publishedGame
-    @PostMapping("publishedGames/")
+    @PostMapping("/publishedGames")
     public void addPublishedGame(@RequestBody PublishedGame pg) {
         pgs.addPublishedGame(pg);
     }
@@ -38,5 +38,11 @@ public class PublishedGameController {
     public List<PublishedGame> getPublishedGamesById(@PathVariable("id") int userid) {
         List<PublishedGame> lpg = pgs.getPublishedGamesById(userid);
         return lpg;
+    }
+
+    @GetMapping("/publishedGames/all")
+    public List<PublishedGame> getPublishedGameById(){
+        List<PublishedGame> pg = pgs.getAllPublishedGames();
+        return pg;
     }
 }
