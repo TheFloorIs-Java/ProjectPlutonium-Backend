@@ -31,4 +31,10 @@ public class PublishedGameService {
     public List<PublishedGame> getAllPublishedGames() {
         return pgr.findAll();
     }
+
+    public void deletePublishedGame(int game_id) {
+        PublishedGame pg = new PublishedGame();
+        pg.setGame_id(game_id);
+        pgr.delete(pg);
+    }
 }

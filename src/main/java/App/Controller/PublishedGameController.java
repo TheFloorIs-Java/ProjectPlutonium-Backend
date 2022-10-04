@@ -45,4 +45,9 @@ public class PublishedGameController {
         List<PublishedGame> pg = pgs.getAllPublishedGames();
         return pg;
     }
+
+    @DeleteMapping("/publishedGames/id/{id}")
+    public void deletePublishedGame(@PathVariable("id") int game_id) {
+        pgs.deletePublishedGame(game_id);
+    }
 }
