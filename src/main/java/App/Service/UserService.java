@@ -57,8 +57,17 @@ public class UserService {
     }
 
     public User updateUserById(User user, int id) {
-        //will put a condition to check if the user exists in the database but for now you can update.
-        return null;
+        User previousUser = userRepo.findById(id).get();
+        previousUser.setUsername(user.getUsername());
+        previousUser.setProfile_pic_url(user.getProfile_pic_url());
+        previousUser.setPermission_level(user.getPermission_level());
+        userRepo.save(previousUser);
+        return previousUser;
     }
 
+    public User deleteUserById(int id) {
+        User user = userRepo.findById(id).get();
+        userRepo.deleteById(id);
+        return user;
+    }
 }
