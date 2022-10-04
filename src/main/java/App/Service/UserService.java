@@ -88,4 +88,10 @@ public class UserService {
         userRepo.delete(user);
         return user;
     }
+
+    public void updateUserProfilePicUrl(String profile_pic_url, int userid) {
+        User user = userRepo.findById(userid).get();
+        user.setProfile_pic_url(profile_pic_url);
+        userRepo.save(user);
+    }
 }

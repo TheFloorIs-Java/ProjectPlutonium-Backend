@@ -31,7 +31,6 @@ public class UserController {
         this.ss = ss;
     }
 
-
     @GetMapping("/users/id/{id}")
     public User getUserById(@PathVariable("id") int id){
         User user = us.getUserById(id);
@@ -91,5 +90,10 @@ public class UserController {
     public List<Session> getAllSessions(){
         List<Session> sessions = ss.getAllSessions();
         return sessions;
+    }
+
+    @PatchMapping("users/id/url")
+    public void updateUserProfilePicUrl(@RequestBody String profile_pic_url, int userid) {
+        us.updateUserProfilePicUrl(profile_pic_url, userid);
     }
 }
