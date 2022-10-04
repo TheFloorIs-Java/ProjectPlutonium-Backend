@@ -82,6 +82,11 @@ public class UserController {
         return updatedUser;
     }
 
+    @DeleteMapping("/users/id/{id}")
+    public User deleteUserById(@PathVariable("id") int id){
+        return us.deleteUserById(id);
+    }
+
     @GetMapping("/sessions/all")
     public List<Session> getAllSessions(){
         List<Session> sessions = ss.getAllSessions();
