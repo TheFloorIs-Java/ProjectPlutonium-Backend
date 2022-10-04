@@ -17,7 +17,13 @@ import java.util.Date;
 public class DailyChallenge {
 
     @Id
-    Date challenge_date;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer id;
+
+
+    @Column(name = "challenge_date")
+    Date challengeDate;
+
 
     @ManyToOne
     @JoinColumn(name="published_game_id")
