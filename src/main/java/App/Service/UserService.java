@@ -1,21 +1,36 @@
 package App.Service;
 
+import App.DAO.PublishedGameRepository;
+import App.DAO.ScoreCardRepository;
+import App.DAO.SessionRepository;
 import App.DAO.UserRepository;
+import App.Models.ScoreCard;
 import App.Models.Session;
 import App.Models.User;
 import App.Utility.HashNSaltUtil;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @Component
+
 public class UserService {
 
 
     UserRepository userRepo;
 
-    public UserService(UserRepository userRepo){
+    // :(
+    PublishedGameRepository ps;
+    ScoreCardRepository scs;
+    SessionRepository ss;
+
+    public UserService(UserRepository userRepo, PublishedGameRepository ps, ScoreCardRepository scs, SessionRepository ss){
         this.userRepo = userRepo;
+        this.ps = ps;
+        this.scs = scs;
+        this.ss = ss;
     }
 
     public User getUserById(int id) {
@@ -67,7 +82,10 @@ public class UserService {
 
     public User deleteUserById(int id) {
         User user = userRepo.findById(id).get();
-        userRepo.deleteById(id);
+        ps.deleteAll(ps.findPublishedGameByUser(user));
+        scs.deleteAll(scs.findScoreCardByUser(user));
+        ss.delete(ss.findSessionByUser(user).get());
+        userRepo.delete(user);
         return user;
     }
 }
