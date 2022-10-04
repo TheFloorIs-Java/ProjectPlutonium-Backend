@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 import java.util.Map;
 
@@ -92,8 +93,8 @@ public class UserController {
         return sessions;
     }
 
-    @PatchMapping("users/id/url")
-    public void updateUserProfilePicUrl(@RequestBody String profile_pic_url, int userid) {
-        us.updateUserProfilePicUrl(profile_pic_url, userid);
+    @PatchMapping("users/profilepic")
+    public User updateUserProfilePicUrl(@RequestBody User user) {
+        return us.updateUserProfilePicUrl(user);
     }
 }

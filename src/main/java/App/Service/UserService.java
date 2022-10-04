@@ -89,9 +89,10 @@ public class UserService {
         return user;
     }
 
-    public void updateUserProfilePicUrl(String profile_pic_url, int userid) {
-        User user = userRepo.findById(userid).get();
-        user.setProfile_pic_url(profile_pic_url);
-        userRepo.save(user);
+    public User updateUserProfilePicUrl(User user) {
+        User user1 = userRepo.findById(user.getUser_id()).get();
+        user1.setProfile_pic_url(user.getProfile_pic_url());
+        userRepo.save(user1);
+        return user1;
     }
 }
