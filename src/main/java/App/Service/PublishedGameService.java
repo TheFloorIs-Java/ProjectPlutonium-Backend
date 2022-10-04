@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Component
 public class PublishedGameService {
@@ -24,6 +21,7 @@ public class PublishedGameService {
     public Optional<PublishedGame> getPublishedGameById(int id) {
         return pgr.findById(id);
     }
+
     public List<PublishedGame> getPublishedGamesById(int id) {
         User user = new User();
         user.setUser_id(id);
