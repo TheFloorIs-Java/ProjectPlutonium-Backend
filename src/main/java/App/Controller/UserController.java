@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 import java.util.Map;
 
@@ -30,7 +31,6 @@ public class UserController {
         this.us = us;
         this.ss = ss;
     }
-
 
     @GetMapping("/users/id/{id}")
     public User getUserById(@PathVariable("id") int id){
@@ -91,5 +91,10 @@ public class UserController {
     public List<Session> getAllSessions(){
         List<Session> sessions = ss.getAllSessions();
         return sessions;
+    }
+
+    @PatchMapping("users/profilepic")
+    public User updateUserProfilePicUrl(@RequestBody User user) {
+        return us.updateUserProfilePicUrl(user);
     }
 }
