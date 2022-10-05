@@ -1,7 +1,9 @@
 package App.Service;
 
 
+import App.DAO.PublishedGameRepository;
 import App.DAO.ScoreCardRepository;
+import App.DAO.UserRepository;
 import App.Models.PublishedGame;
 import App.Models.ScoreCard;
 import App.Models.User;
@@ -15,15 +17,20 @@ import java.util.List;
 public class ScoreCardService {
 
     ScoreCardRepository scr;
+
+    //:(
+    UserRepository ur;
+    PublishedGameRepository pgr;
+
     @Autowired
-    public ScoreCardService(ScoreCardRepository scr) {
+    public ScoreCardService(ScoreCardRepository scr, UserRepository ur, PublishedGameRepository pgr) {
         this.scr = scr;
+        this.ur = ur;
+        this.pgr = pgr;
     }
 
     public List<ScoreCard> getScoreCardByPlayerId(int id){
-        User user = User.builder()
-                .user_id(id)
-                .build();
+        User user = ur.findById(id).get();
         return scr.findScoreCardByUser(user);
     }
 
@@ -31,18 +38,26 @@ public class ScoreCardService {
         return null;
     }
 
-    public ScoreCard addScoreCard(int score, int user_id, int published_game_id) {
-        User user = User.builder().user_id(user_id).build();
-        PublishedGame publishedGame = PublishedGame.builder().game_id(published_game_id).build();
+    public ScoreCard addScoreCard(ScoreCard scoreCard) {
+        User user = ur.findById(scoreCard.getUser().getUser_id()).get();
+        PublishedGame publishedGame = pgr.findById(scoreCard.getPublishedGame().getGame_id()).get();
 
-        Date date = new Date();
-        date.getTime();
-        ScoreCard scoreCard = ScoreCard.builder()
-                .published_game(publishedGame)
-                .score(score)
-                .user(user)
-                .date_submitted(date)
-                .build();
+        List<ScoreCard> ExistingScoreCard = scr.findScoreCardByUserAndPublishedGame(user,publishedGame);
+        if (ExistingScoreCard.size() > 0) {
+            int score = scoreCard.getScore();
+            scoreCard = ExistingScoreCard.get(0);
+            if (scoreCard.getScore() < score)
+                scoreCard.setScore(score);
+        }
+        else {
+            scoreCard.setUser(user);
+            scoreCard.setPublishedGame(publishedGame);
+        }
+
        return scr.save(scoreCard);
+    }
+
+    public List<ScoreCard> getAllScoreCards() {
+        return scr.findAll();
     }
 }

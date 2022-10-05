@@ -20,16 +20,19 @@ public class ScoreCardController {
         this.scs = scs;
     }
 
-    @GetMapping("/scorecard/id")
+    @GetMapping("/scorecard/all")
+    public List<ScoreCard> getAllScoreCards(){
+        return scs.getAllScoreCards();
+    }
+
+    @GetMapping("/scorecard/userId")
     public List<ScoreCard> getScoreCardByPlayerId(@RequestHeader Map<String, String> id){
         return scs.getScoreCardByPlayerId(Integer.parseInt(id.get("id")));
     }
 
     @PostMapping("/scorecard")
-    public ScoreCard addScoreByPlayerId(@RequestHeader Map<String, String> headers){
-        return scs.addScoreCard(Integer.parseInt(headers.get("score")),
-                Integer.parseInt(headers.get("user_id")),
-                Integer.parseInt(headers.get("game_id")));
+    public ScoreCard addScoreByPlayerId(@RequestBody ScoreCard scoreCard){
+        return scs.addScoreCard(scoreCard);
     }
 
 }

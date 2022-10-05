@@ -30,7 +30,7 @@ public class ScoreCard {
             fetch = FetchType.EAGER
     )
     @JoinColumn(name="published_game_id")
-    private PublishedGame published_game;
+    private PublishedGame publishedGame;
 
     @Column
     private Date date_submitted;
