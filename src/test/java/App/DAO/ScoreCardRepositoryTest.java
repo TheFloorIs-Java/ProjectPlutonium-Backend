@@ -34,7 +34,7 @@ class ScoreCardRepositoryTest {
 
         ScoreCard scoreCard = ScoreCard.builder()
                 .user(user)
-                .published_game(publishedGame)
+                .publishedGame(publishedGame)
                 .date_submitted(date)
                 .score(100)
                 .build();
@@ -50,5 +50,15 @@ class ScoreCardRepositoryTest {
 
         List<ScoreCard> scoreCard = scr.findScoreCardByUser(user);
 
+    }
+
+    @Test
+    void getScoreCardByUserAndPublishedGame(){
+        User user = User.builder()
+                .user_id(10)
+                .build();
+        PublishedGame publishedGame = PublishedGame.builder().game_id(29).build();
+
+        System.out.println(scr.findScoreCardByUserAndPublishedGame(user, publishedGame).toString());
     }
 }
