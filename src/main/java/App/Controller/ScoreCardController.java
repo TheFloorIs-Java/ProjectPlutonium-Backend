@@ -25,9 +25,9 @@ public class ScoreCardController {
         return scs.getAllScoreCards();
     }
 
-    @GetMapping("/scorecard/userId")
-    public List<ScoreCard> getScoreCardByPlayerId(@RequestHeader Map<String, String> id){
-        return scs.getScoreCardByPlayerId(Integer.parseInt(id.get("id")));
+    @GetMapping("/scorecard/userId/{id}")
+    public List<ScoreCard> getScoreCardByPlayerId(@PathVariable("id") int id){
+        return scs.getScoreCardByPlayerId(id);
     }
 
     @PostMapping("/scorecard")
