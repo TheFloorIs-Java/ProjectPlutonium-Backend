@@ -35,5 +35,10 @@ public class DailyChallengeService {
 
     }
 
+    public List<DailyChallenge> removeDailyChallengeById(int id) {
+         dcr.deleteById(id);
+        return dcr.findAll();
+    }
+
 
 }

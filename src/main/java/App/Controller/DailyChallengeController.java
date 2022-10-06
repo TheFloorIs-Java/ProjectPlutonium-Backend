@@ -37,6 +37,11 @@ public class DailyChallengeController {
         return dcs.getAllDailyChallenges();
     }
 
+    @DeleteMapping("/dailyChallenge/{id}")
+    public List<DailyChallenge> removeDailyChallengeById(@PathVariable("id") int id){
+        return dcs.removeDailyChallengeById(id);
+    }
+
     @PostMapping("/dailyChallenge/")
     public DailyChallenge postDailyChallengeByDateId(@RequestHeader Map<String, String> headers) {
 
