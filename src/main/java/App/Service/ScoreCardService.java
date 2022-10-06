@@ -10,6 +10,7 @@ import App.Models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -59,5 +60,22 @@ public class ScoreCardService {
 
     public List<ScoreCard> getAllScoreCards() {
         return scr.findAll();
+    }
+
+    public List<ScoreCard> getAggregateScores(){
+        List<ScoreCard> scoreCards = new ArrayList<>();
+        List<Integer> userIds = scr.findDistinctUserId();
+
+        for (int userId: userIds){
+            User user = ur.findById(userId).get();
+            ScoreCard scoreCard = ScoreCard.builder()
+                    .user(user)
+                    .score(scr.getSumOfUserScore(userId))
+                    .build();
+            scoreCards.add(scoreCard);
+        }
+
+
+        return scoreCards;
     }
 }

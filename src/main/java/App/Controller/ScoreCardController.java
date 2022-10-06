@@ -35,4 +35,9 @@ public class ScoreCardController {
         return scs.addScoreCard(scoreCard);
     }
 
+    @GetMapping("/leaderboard")
+    public List<ScoreCard> getLeaderBoardDetails(){
+        return scs.getAggregateScores();
+    }
+
 }
