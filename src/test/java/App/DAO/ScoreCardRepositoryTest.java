@@ -3,6 +3,7 @@ package App.DAO;
 import App.Models.PublishedGame;
 import App.Models.ScoreCard;
 import App.Models.User;
+import App.Service.ScoreCardService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,6 +18,9 @@ class ScoreCardRepositoryTest {
 
     @Autowired
     ScoreCardRepository scr;
+
+    @Autowired
+    ScoreCardService scs;
 
     @Test
     void saveScore(){
@@ -61,4 +65,20 @@ class ScoreCardRepositoryTest {
 
         System.out.println(scr.findScoreCardByUserAndPublishedGame(user, publishedGame).toString());
     }
+
+    @Test
+    void getSumofScore(){
+        System.out.println(scr.getSumOfUserScore(10));
+    }
+
+    @Test
+    void testLeaderBoardScore(){
+        System.out.println(scs.getAggregateScores());
+    }
+
+    @Test
+    void TestDistinctQuery(){
+        System.out.println(scr.findDistinctUserId());
+    }
+
 }
