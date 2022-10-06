@@ -17,13 +17,12 @@ public class DailyChallengeService {
     DailyChallengeRepository dcr;
 
 
+
     public DailyChallenge getDailyChallengeByDate(Date date) {
         if(dcr.findDailyChallengeByChallengeDate(date).isPresent()){
             return dcr.findDailyChallengeByChallengeDate(date).get();
         }
-
            return null;
-
     }
 
     public List<DailyChallenge> getAllDailyChallenges(){

@@ -43,26 +43,7 @@ public class DailyChallengeController {
     }
 
     @PostMapping("/dailyChallenge/")
-    public DailyChallenge postDailyChallengeByDateId(@RequestHeader Map<String, String> headers) {
-
-        Date pd = null;
-        String date = headers.get("challenge_date");
-        int id = Integer .parseInt(headers.get("game_id"));
-
-        PublishedGame pg = new PublishedGame();
-        pg.setGame_id(id);
-
-        try {
-            pd = new SimpleDateFormat("yyyy-MM-dd").parse(date);
-        }catch (Exception e){
-            System.out.println("e");
-        }
-
-        DailyChallenge dc = new DailyChallenge();
-        dc.setChallengeDate(pd);
-        dc.setPublished_game(pg);
-
-
+    public DailyChallenge postDailyChallengeByDateId(@RequestBody DailyChallenge dc) {
         return dcs.addDailyChallenge(dc);
     }
 
