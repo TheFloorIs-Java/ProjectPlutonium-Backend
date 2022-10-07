@@ -1,8 +1,10 @@
 package App.Service;
 
 import App.DAO.PublishedGameRepository;
+import App.DAO.ScoreCardRepository;
 import App.Models.DailyChallenge;
 import App.Models.PublishedGame;
+import App.Models.ScoreCard;
 import App.Models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,6 +16,8 @@ import java.util.*;
 public class PublishedGameService {
     @Autowired
     PublishedGameRepository pgr;
+    @Autowired
+    ScoreCardRepository scr;
 
     public void addPublishedGame(PublishedGame pg) {
         pgr.save(pg);
@@ -33,8 +37,8 @@ public class PublishedGameService {
     }
 
     public void deletePublishedGame(int game_id) {
-        PublishedGame pg = new PublishedGame();
-        pg.setGame_id(game_id);
+        PublishedGame pg = pgr.findById(game_id).get();
+        scr.deleteAll(scr.findScoreCardByPublishedGame(pg));
         pgr.delete(pg);
     }
 }

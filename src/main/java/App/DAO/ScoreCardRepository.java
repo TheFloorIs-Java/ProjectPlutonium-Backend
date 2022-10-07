@@ -16,6 +16,8 @@ public interface ScoreCardRepository extends JpaRepository<ScoreCard, Integer> {
 
     List<ScoreCard> findScoreCardByUserAndPublishedGame(User user, PublishedGame publishedGame);
 
+    List<ScoreCard> findScoreCardByPublishedGame(PublishedGame publishedGame);
+
     @Query(
             nativeQuery = true,
             value = "SELECT sum(score) from user_scores WHERE user_id = ?1"
