@@ -43,6 +43,9 @@ public class ScoreCardService {
         User user = ur.findById(scoreCard.getUser().getUser_id()).get();
         PublishedGame publishedGame = pgr.findById(scoreCard.getPublishedGame().getGame_id()).get();
 
+        publishedGame.setNumber_of_plays(publishedGame.getNumber_of_plays()+1);
+        pgr.save(publishedGame);
+
         List<ScoreCard> ExistingScoreCard = scr.findScoreCardByUserAndPublishedGame(user,publishedGame);
         if (ExistingScoreCard.size() > 0) {
             int score = scoreCard.getScore();
@@ -55,7 +58,8 @@ public class ScoreCardService {
             scoreCard.setPublishedGame(publishedGame);
         }
 
-       return scr.save(scoreCard);
+
+        return scr.save(scoreCard);
     }
 
     public List<ScoreCard> getAllScoreCards() {
