@@ -1,5 +1,6 @@
 package App.Service;
 
+import App.DAO.DailyChallengeRepository;
 import App.DAO.PublishedGameRepository;
 import App.DAO.ScoreCardRepository;
 import App.Models.DailyChallenge;
@@ -18,6 +19,8 @@ public class PublishedGameService {
     PublishedGameRepository pgr;
     @Autowired
     ScoreCardRepository scr;
+    @Autowired
+    DailyChallengeRepository dcr;
 
     public void addPublishedGame(PublishedGame pg) {
         pgr.save(pg);
@@ -39,6 +42,7 @@ public class PublishedGameService {
     public void deletePublishedGame(int game_id) {
         PublishedGame pg = pgr.findById(game_id).get();
         scr.deleteAll(scr.findScoreCardByPublishedGame(pg));
+        dcr.deleteAll(dcr.findDailyChallengeByPublishedGame(pg));
         pgr.delete(pg);
     }
 }

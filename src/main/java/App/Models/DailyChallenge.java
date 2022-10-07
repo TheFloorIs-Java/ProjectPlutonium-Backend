@@ -27,5 +27,5 @@ public class DailyChallenge {
 
     @ManyToOne
     @JoinColumn(name="published_game_id")
-    PublishedGame published_game;
+    PublishedGame publishedGame;
 }
